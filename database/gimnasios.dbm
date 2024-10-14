@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="1.1.3" use-changelog="false" max-obj-count="13"
+	 last-position="0,17" last-zoom="0.7" scene-rect="0,0,1915.63,1132.12"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layers="0" fill-color="#e1e1e1" name-color="#000000" sql-disabled="true">
+</schema>
+
+<table name="gimnasios" layers="0" collapse-mode="1" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="120" y="80"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="direccion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="celular_whatsapp" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="unique_email_gimnasio" type="uq-constr" table="public.gimnasios">
+		<columns names="email" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="unique_celular_whatsapp" type="uq-constr" table="public.gimnasios">
+		<columns names="celular_whatsapp" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="gimnasio_pk" type="pk-constr" table="public.gimnasios">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="ejercicios" layers="0" collapse-mode="1" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="100" y="360"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="fk_id_gimnasio" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="grupo_muscular">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="ejercicio_pk" type="pk-constr" table="public.ejercicios">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="roles" layers="0" collapse-mode="1" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="700" y="720"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="unique_rol_nombre" type="uq-constr" table="public.roles">
+		<columns names="nombre" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="roles_pk" type="pk-constr" table="public.roles">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="usuarios" layers="0" collapse-mode="1" max-obj-count="15" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1140" y="620"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="apellido" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="telefono">
+		<type name="text" length="0"/>
+	</column>
+	<column name="celular" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="cedula" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="contrasena">
+		<type name="text" length="0"/>
+	</column>
+	<column name="edad" not-null="true">
+		<type name="int4" length="0"/>
+	</column>
+	<column name="fecha_nacimiento">
+		<type name="date" length="0"/>
+	</column>
+	<column name="direccion">
+		<type name="text" length="0"/>
+	</column>
+	<column name="cobertura_medica">
+		<type name="text" length="0"/>
+	</column>
+	<column name="emergencia_movil">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="unique_email" type="uq-constr" table="public.usuarios">
+		<columns names="email" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="usuarios_pk" type="pk-constr" table="public.usuarios">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="usuario_contactos" layers="0" collapse-mode="1" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1640" y="620"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="fk_id_usuario" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="telefono_contacto" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="relacion_contacto" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="usuario_contactos_pk" type="pk-constr" table="public.usuario_contactos">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="usuario_condiciones" layers="0" collapse-mode="1" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1660" y="820"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="fk_id_usuario">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="tipo_condicion" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="descripcion" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="usuario_condiciones_pk" type="pk-constr" table="public.usuario_condiciones">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="usuario_rol" layers="0" collapse-mode="1" max-obj-count="2" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="680" y="900"/>
+	<column name="fk_id_usuario" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="fk_id_rol">
+		<type name="bigint" length="0"/>
+	</column>
+</table>
+
+<table name="privilegios" layers="0" collapse-mode="1" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="220" y="620"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="tipo" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="valor" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="unique_privilegio_nombre" type="pk-constr" table="public.privilegios">
+		<columns names="nombre,id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="rol_privilegios" layers="0" collapse-mode="1" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="200" y="880"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="fk_id_rol" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="fk_id_privilegio" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="rol_privilegios_pk" type="pk-constr" table="public.rol_privilegios">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="rutina" layers="0" collapse-mode="1" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1060" y="320"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="fk_id_usuario" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="fk_id_ejercicio" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="dia_semana" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="rutina_pk" type="pk-constr" table="public.rutina">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="registro_ejercicios" layers="0" collapse-mode="1" max-obj-count="8" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="600" y="440"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="fk_id_usuario" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="fk_id_ejercicio" not-null="true">
+		<type name="bigint" length="0"/>
+	</column>
+	<column name="repeticiones" not-null="true">
+		<type name="int4" length="0"/>
+	</column>
+	<column name="serie" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="peso">
+		<type name="float4" length="0"/>
+	</column>
+	<column name="fecha" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="registro_ejercicios_pk" type="pk-constr" table="public.registro_ejercicios">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="fk_gimnasio_id" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.gimnasios" table="public.ejercicios">
+	<columns names="fk_id_gimnasio" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_id_usuario" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.usuarios" table="public.usuario_contactos">
+	<columns names="fk_id_usuario" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_id_usuario" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.usuarios" table="public.usuario_condiciones">
+	<columns names="fk_id_usuario" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_id_usuario" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.usuarios" table="public.usuario_rol">
+	<columns names="fk_id_usuario" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_id_rol" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.roles" table="public.usuario_rol">
+	<columns names="fk_id_rol" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_id_privilegio" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.privilegios" table="public.rol_privilegios">
+	<columns names="fk_id_privilegio" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_id_rol" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.roles" table="public.rol_privilegios">
+	<columns names="fk_id_rol" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_id_usuario" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.usuarios" table="public.rutina">
+	<columns names="fk_id_usuario" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_id_ejercicio" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.ejercicios" table="public.rutina">
+	<columns names="fk_id_ejercicio" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_id_usuario" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.usuarios" table="public.registro_ejercicios">
+	<columns names="fk_id_usuario" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_id_ejercicio" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="public.ejercicios" table="public.registro_ejercicios">
+	<columns names="fk_id_ejercicio" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_ejercicio_gimnasio" type="relfk" layers="0"
+	 src-table="public.ejercicios"
+	 dst-table="public.gimnasios" reference-fk="fk_gimnasio_id"
+	 src-required="false" dst-required="true">
+	<label ref-type="name-label">
+		<position x="-78.9624" y="-32.353"/>
+	</label>
+</relationship>
+
+<relationship name="rel_usuario_contactos_usuarios" type="relfk" layers="0"
+	 src-table="public.usuario_contactos"
+	 dst-table="public.usuarios" reference-fk="fk_id_usuario"
+	 src-required="false" dst-required="true">
+	<label ref-type="name-label">
+		<position x="1.56075" y="-0.555802"/>
+	</label>
+</relationship>
+
+<relationship name="rel_usuario_condiciones_usuarios" type="relfk" layers="0"
+	 src-table="public.usuario_condiciones"
+	 dst-table="public.usuarios" reference-fk="fk_id_usuario"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_usuario_rol_usuarios" type="relfk" layers="0"
+	 src-table="public.usuario_rol"
+	 dst-table="public.usuarios" reference-fk="fk_id_usuario"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_usuario_rol_roles" type="relfk" layers="0"
+	 src-table="public.usuario_rol"
+	 dst-table="public.roles" reference-fk="fk_id_rol"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-89.8815" y="-27.0244"/>
+	</label>
+</relationship>
+
+<relationship name="rel_rol_privilegios_privilegios" type="relfk" layers="0"
+	 src-table="public.rol_privilegios"
+	 dst-table="public.privilegios" reference-fk="fk_id_privilegio"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_rol_privilegios_roles" type="relfk" layers="0"
+	 src-table="public.rol_privilegios"
+	 dst-table="public.roles" reference-fk="fk_id_rol"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_rutina_usuarios" type="relfk" layers="0"
+	 src-table="public.rutina"
+	 dst-table="public.usuarios" reference-fk="fk_id_usuario"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_registro_ejercicios_usuarios" type="relfk" layers="0"
+	 src-table="public.registro_ejercicios"
+	 dst-table="public.usuarios" reference-fk="fk_id_usuario"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="rel_registro_ejercicios_ejercicios" type="relfk" layers="0"
+	 src-table="public.registro_ejercicios"
+	 dst-table="public.ejercicios" reference-fk="fk_id_ejercicio"
+	 src-required="false" dst-required="true">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="rel_rutina_ejercicios" type="relfk" layers="0"
+	 src-table="public.rutina"
+	 dst-table="public.ejercicios" reference-fk="fk_id_ejercicio"
+	 src-required="false" dst-required="true">
+	<label ref-type="name-label">
+		<position x="-19.2963" y="-51.6699"/>
+	</label>
+</relationship>
+
+</dbmodel>
