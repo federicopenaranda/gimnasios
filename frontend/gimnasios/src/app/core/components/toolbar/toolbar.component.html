@@ -1,0 +1,16 @@
+<mat-toolbar class="mat-elevation-z6">
+  <button mat-icon-button (click)="collapseChange.emit(!collapse)">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="title">Project Name</span>
+
+  <span class="spacer"></span>
+
+  <a mat-icon-button aria-label="Help section button" routerLink="help" routerLinkActive="selected-toolbar">
+    <mat-icon fontSet="material-icons-outlined">question_mark</mat-icon>
+  </a>
+  <a mat-icon-button aria-label="Suggestion dialog button" (click)="openDialog()">
+    <mat-icon fontSet="material-icons-outlined">lightbulb</mat-icon>
+  </a>
+
+</mat-toolbar>

@@ -1,0 +1,9 @@
+<app-toolbar [collapse]="collapse()" (collapseChange)="collapse.set($event)"></app-toolbar>
+<mat-sidenav-container color="primary">
+  <mat-sidenav [style.width]="sidenavWidth()" mode="side" opened>
+    <app-menu [collapse]="collapse()" />
+  </mat-sidenav>
+  <mat-sidenav-content class="content" [style.marginLeft]="sidenavWidth()">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

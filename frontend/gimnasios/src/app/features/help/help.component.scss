@@ -1,0 +1,21 @@
+.title{
+  font-weight: 400;
+}
+
+mat-expansion-panel{
+  // border-left:var(--primary-color) solid 15px;
+  margin-bottom: 10px;
+  border-radius: 15px !important;
+}
+
+mat-panel-title{
+  font-size: 20px;
+}
+
+mat-expansion-panel-header{
+  padding: 10px 24px;
+}
+
+mat-divider{
+  margin: 20px 0;
+}

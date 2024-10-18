@@ -1,0 +1,16 @@
+<h1 class="title">Ayuda</h1>
+<mat-divider></mat-divider>
+<mat-accordion>
+  @for(item of helpItems(); track item){
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{item.title}}</mat-panel-title>
+      </mat-expansion-panel-header>
+      @if(item.description){
+        <mat-panel-description>{{item.description}}</mat-panel-description>
+      }
+      <p [innerHTML]="item.content"></p>
+    </mat-expansion-panel>
+
+  }
+</mat-accordion>

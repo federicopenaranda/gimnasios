@@ -1,0 +1,29 @@
+@mixin small-viewport {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin medium-viewport {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin medium-large-viewport {
+  @media (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin large-viewport {
+  @media (max-width: 1100px) {
+    @content;
+  }
+}
+
+@mixin extra-large-viewport {
+  @media (max-width: 1400px) {
+    @content;
+  }
+}

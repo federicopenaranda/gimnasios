@@ -1,0 +1,6 @@
+<mat-nav-list>
+  @for(item of menuItems(); track item.label){
+    <app-menu-item [item]="item" [collapse]="sidenavCollapse()"></app-menu-item>
+  }
+  <mat-divider></mat-divider>
+</mat-nav-list>
