@@ -1,0 +1,35 @@
+mat-toolbar{
+  position: relative;
+  z-index: 5;
+  display: flex;
+}
+
+:host *{
+  transition: all .3s ease-in-out;
+}
+
+.spacer {
+  flex:1 1 auto;
+}
+
+.selected-toolbar{
+  position: relative;
+  border-bottom: 5px solid var(--primary-color);
+  background-color: rgba(0,0,0,.05);
+}
+
+.selected-toolbar mat-icon{
+  color: var(--primary-color);
+}
+
+.mat-toolbar a[mat-icon-button], .mat-toolbar button[mat-icon-button] {
+  height: 100%;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .mat-mdc-icon-button .mat-mdc-button-persistent-ripple {
+  border-radius: 0 !important;
+}

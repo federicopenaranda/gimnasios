@@ -1,0 +1,27 @@
+:host *{
+  transition: all .3s ease-in-out;
+}
+
+mat-nav-list{
+  padding: 30px 0;
+}
+
+.menu-item{
+  border-left: 5px solid;
+  border-left-color: transparent;
+}
+
+.selected-menu-item{
+  border-left:5px solid var(--primary-color);
+  border-radius: 0 !important;
+  background-color: rgba(0,0,0,.05) !important;
+}
+
+selected-nested-menu-item{
+  border: none;
+  margin-left: 30px;
+}
+
+.indented{
+  --mat-list-list-item-leading-icon-start-space:48px;
+}
