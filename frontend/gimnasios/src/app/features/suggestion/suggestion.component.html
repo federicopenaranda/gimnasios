@@ -1,0 +1,15 @@
+@if (!suggestionSent) {
+  <form [formGroup]="formService.form" (ngSubmit)="onSubmit()">
+    <h2 mat-dialog-title>Sugerencia</h2>
+    <mat-dialog-content>
+      <p>Reporta un error o sugiere un cambio en esta app.</p>
+      <mat-form-field>
+        <textarea matInput formControlName="suggestion_text"></textarea>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button type="button" (click)="dialogRef.close()">Cerrar</button>
+      <button mat-button cdkFocusInitial type="submit" [disabled]="formService.form.invalid">Enviar</button>
+    </mat-dialog-actions>
+  </form>
+}
