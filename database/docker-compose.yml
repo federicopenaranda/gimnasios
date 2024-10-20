@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:15
+    container_name: pg-gimnasios
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: gimnasios
+      POSTGRES_DB: gimnasios
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'

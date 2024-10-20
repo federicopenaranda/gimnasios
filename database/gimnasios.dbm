@@ -4,7 +4,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
 <dbmodel pgmodeler-ver="1.1.3" use-changelog="false" max-obj-count="13"
-	 last-position="0,17" last-zoom="0.7" scene-rect="0,0,1915.63,1132.12"
+	 last-position="0,116" last-zoom="0.7" scene-rect="0,0,1915.63,1132.12"
 	 default-schema="public" default-owner="postgres"
 	 layers="Default layer"
 	 active-layers="0"
@@ -217,8 +217,11 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="valor" not-null="true">
 		<type name="text" length="0"/>
 	</column>
-	<constraint name="unique_privilegio_nombre" type="pk-constr" table="public.privilegios">
-		<columns names="nombre,id" ref-type="src-columns"/>
+	<constraint name="privilegios_pk" type="pk-constr" table="public.privilegios">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="unique_privilegio_nombre" type="uq-constr" table="public.privilegios">
+		<columns names="nombre" ref-type="src-columns"/>
 	</constraint>
 </table>
 
