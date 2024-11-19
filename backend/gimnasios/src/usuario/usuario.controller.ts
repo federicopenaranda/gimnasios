@@ -6,6 +6,7 @@ import { CreateUsuarioDto } from './dtos/create-usuario.dto';
 import { CreateUsuarioContactoDto } from './dtos/create-usuario-contacto.dto';
 import { CreateUsuarioCondicionDto } from './dtos/create-usuario-condicion.dto';
 import { ServerResponse } from 'src/shared/server-response.model';
+import { CreateUsuarioRutinaDto } from './dtos/create-usuario-rutina.dto';
 
 @Controller('usuario')
 export class UsuarioController {
@@ -155,6 +156,56 @@ export class UsuarioController {
                 data: '',
                 error: e.message,
                 message: `Error al obtener la rutina del usuario.`
+            } as ServerResponse);
+        }
+    }
+
+    @Post(':id/rutina')
+	async guardaUsuarioRutina(
+        @Param('id') id: number,
+        @Body() dto: CreateUsuarioRutinaDto[]
+    ) {
+        try {
+            const res = await this.usuarioService.guardaUsuarioRutina(dto, id);
+            return {
+                success: true,
+                statusCode: HttpStatus.OK,
+                data: res,
+                error: '',
+                message: `Rutina de usuario creada.`
+            } as ServerResponse;
+        } catch(e) {
+            throw new BadRequestException({
+                success: false,
+                statusCode: HttpStatus.BAD_REQUEST,
+                data: '',
+                error: e.message,
+                message: `Error al crear la rutina del usuario.`
+            } as ServerResponse);
+        }
+    }
+
+    @Delete(':usuarioId/rutina/:id')
+    async deleteUsuarioRutina(
+        @Param('id') id: number,
+        @Param('usuarioId') usuarioId: number,
+    ) {
+        try {
+            const res = await this.usuarioService.deleteUsuarioRutina(+id, usuarioId);
+            return {
+                success: true,
+                statusCode: HttpStatus.OK,
+                data: res,
+                error: '',
+                message: `Rutina de usuario eliminado.`
+            } as ServerResponse;
+        } catch(e) {
+            throw new BadRequestException({
+                success: false,
+                statusCode: HttpStatus.BAD_REQUEST,
+                data: '',
+                error: e.message,
+                message: `Error al eliminar la rutina del usuario.`
             } as ServerResponse);
         }
     }

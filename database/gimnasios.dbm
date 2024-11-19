@@ -4,7 +4,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
 <dbmodel pgmodeler-ver="1.1.3" use-changelog="false" max-obj-count="15"
-	 last-position="0,99" last-zoom="0.7" scene-rect="0,0,1915.63,1132.12"
+	 last-position="0,0" last-zoom="0.7" scene-rect="0,0,1915.63,1132.12"
 	 default-schema="public" default-owner="postgres"
 	 layers="Default layer"
 	 active-layers="0"
@@ -272,6 +272,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</column>
 	<constraint name="rutina_pk" type="pk-constr" table="public.rutina">
 		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="mismo_dia_ejercicio" type="uq-constr" table="public.rutina">
+		<columns names="fk_id_usuario,dia_semana,fk_id_ejercicio" ref-type="src-columns"/>
 	</constraint>
 </table>
 

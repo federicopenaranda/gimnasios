@@ -3,6 +3,7 @@ import { GimnasioService } from './gimnasio.service';
 import { CreateGimnasioDto } from './dtos/create-gimnasio.dto';
 import { UpdateGimnasioDto } from './dtos/update-gimnasio.dto';
 import { ServerResponse } from 'src/shared/server-response.model';
+import { CreateUsuarioGimnasioDto } from './dtos/create-usuario-gimnasio.dto';
 
 @Controller('gimnasio')
 export class GimnasioController {
@@ -174,5 +175,30 @@ export class GimnasioController {
             } as ServerResponse);
         }
     }
+
+    @Post('registroUsuario')
+    async postRegistroUsuarioGimnasio(
+        @Body() dto: CreateUsuarioGimnasioDto
+    ) {
+        try {
+            const res = await this.gimnasioService.registroUsuarioGimnasio(dto);
+            return {
+                success: true,
+                statusCode: HttpStatus.OK,
+                data: res,
+                error: '',
+                message: `Usuario registrado en Gimnasio.`
+            } as ServerResponse;
+        } catch(e) {
+            throw new BadRequestException({
+                success: false,
+                statusCode: HttpStatus.BAD_REQUEST,
+                data: '',
+                error: e.message,
+                message: `Error al registrar el usuario.`
+            } as ServerResponse);
+        }
+    }
+
     
 }

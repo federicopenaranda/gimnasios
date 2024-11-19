@@ -5,6 +5,8 @@ import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { Gimnasio } from './entities/gimnasios.entity';
 import { DataSource, Repository } from 'typeorm';
 import { Ejercicio } from 'src/ejercicio/entities/ejercicios.entity';
+import { CreateUsuarioGimnasioDto } from './dtos/create-usuario-gimnasio.dto';
+import { UsuarioGimnasio } from 'src/usuario/entities/usuario-gimnasio.entity';
 
 @Injectable()
 export class GimnasioService {
@@ -14,6 +16,8 @@ export class GimnasioService {
         private readonly gimnasioRepository: Repository<Gimnasio>,
         @InjectRepository(Ejercicio)
         private readonly ejercicioRepository: Repository<Ejercicio>,
+        @InjectRepository(UsuarioGimnasio)
+        private readonly usuarioGimnasioRepository: Repository<UsuarioGimnasio>,
         @InjectDataSource()
         private dataSource: DataSource,
     ) {}
@@ -74,6 +78,11 @@ export class GimnasioService {
                 ug.fecha_fin IS NULL AND 
                 ug.fk_id_gimnasio = ${id}
         `);
+    }
+
+    async registroUsuarioGimnasio(dto: CreateUsuarioGimnasioDto) {
+        const newRecObj = this.usuarioGimnasioRepository.create(dto);
+        return await this.usuarioGimnasioRepository.save(newRecObj);
     }
 
 }

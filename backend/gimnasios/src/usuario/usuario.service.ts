@@ -12,6 +12,8 @@ import { Usuario } from './entities/usuarios.entity';
 import { UsuarioContacto } from './entities/usuario-contacto.entity';
 import { UsuarioCondicion } from './entities/usuario-condicion.entity';
 import { RegistroEjercicio } from './entities/registro-ejercicio.entity';
+import { CreateUsuarioRutinaDto } from './dtos/create-usuario-rutina.dto';
+import { Rutina } from './entities/rutina.entity';
 
 
 @Injectable()
@@ -26,6 +28,8 @@ export class UsuarioService {
         private readonly usuarioCondicionRepository: Repository<UsuarioCondicion>,
         @InjectRepository(RegistroEjercicio)
         private readonly registroEjercicioRepository: Repository<RegistroEjercicio>,
+        @InjectRepository(Rutina)
+        private readonly rutinaRepository: Repository<Rutina>,
         @InjectDataSource()
         private dataSource: DataSource,
     ) {}
@@ -206,6 +210,49 @@ export class UsuarioService {
             )
             ORDER BY r.orden asc`
         );
+    }
+
+    async guardaUsuarioRutina(dto: CreateUsuarioRutinaDto[], id: number): Promise<any> {
+
+        if ( dto.length === 0 ) {
+            throw new HttpException(`Rutina vacía`, HttpStatus.BAD_REQUEST);
+        }
+
+        // Rutinas nuevas
+        const newRecRutina = dto
+            .filter( (rutina) => !rutina.id )
+            .map(
+                (rutina) => {
+                    const newRutina = this.rutinaRepository.create(rutina);
+                    newRutina.fk_id_usuario = id;
+                    return newRutina;
+                }
+            );
+        await this.rutinaRepository.save(newRecRutina);
+
+
+        // Rutinas para actualizar
+        const updateRecRutina = dto
+            .filter( (rutina) => rutina.id )
+            .map( (rutina) => {
+                rutina['fk_id_usuario'] = id;
+                return rutina;
+            })
+            .map(
+                (rutina) => this.rutinaRepository.update(rutina.id, rutina)
+            );
+        await Promise.all(updateRecRutina);
+
+        return;
+    }
+
+    async deleteUsuarioRutina(id: number, usuarioId: number): Promise<any> {
+        await this.getOne(usuarioId);
+        const usuarioRutina = await this.rutinaRepository.findOne({
+            where: {
+                id, fk_id_usuario: usuarioId
+            }});
+        return await this.rutinaRepository.remove(usuarioRutina);
     }
 
 }
