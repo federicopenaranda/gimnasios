@@ -1,4 +1,4 @@
-<app-toolbar [collapse]="collapse()" (collapseChange)="collapse.set($event)"></app-toolbar>
+<app-toolbar [collapse]="collapse()" [projectTitle]="projectTitle" (collapseChange)="collapse.set($event)"></app-toolbar>
 <mat-sidenav-container color="primary">
   <mat-sidenav [style.width]="sidenavWidth()" mode="side" opened>
     <app-menu [collapse]="collapse()" />

@@ -97,7 +97,7 @@ export class UsuarioService {
 
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { contrasena, ...rest } = dto;
-        return rest;
+        return { ...rest, id: usuarioDb.id};
     }
 
     async update(dto: UpdateUsuarioDto, id: number): Promise<Partial<Usuario>> {

@@ -13,18 +13,5 @@ export class UtilsService {
 
   constructor() {}
 
-  handleError<T>(operation = 'operation', result?: T): any {
-    return (error: any): Observable<T> => {
-      if ( error.status && error.status === 401 ) {
-        // Handle logout
-        // this.logoutService.logOut();
-      }
-      return of(result as T);
-    };
-  }
-
-  log(message: string): void {
-    console.log(message);
-  }
 
 }

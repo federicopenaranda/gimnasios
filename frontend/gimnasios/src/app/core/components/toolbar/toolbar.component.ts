@@ -23,10 +23,12 @@ import { SuggestionComponent } from '../../../features/suggestion/suggestion.com
 })
 export class ToolbarComponent {
 
+  @Input() projectTitle!: string;
   @Input() collapse!: boolean;
   @Output() collapseChange = new EventEmitter<boolean>();
    readonly dialog = inject(MatDialog);
 
+   
   openDialog(): void {
     const dialogRef = this.dialog.open(SuggestionComponent, {
       panelClass: 'suggestion-dialog-container',

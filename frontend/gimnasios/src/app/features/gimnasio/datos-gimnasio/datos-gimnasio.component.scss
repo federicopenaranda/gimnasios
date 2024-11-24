@@ -1,0 +1,114 @@
+
+:host{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.content{
+  width: 100%;
+}
+
+.content > h1{
+  margin:20px 0;
+}
+
+mat-card{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 10px;
+}
+
+mat-card-content{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 !important;
+}
+
+mat-card-content > span{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: fit-content;
+}
+
+mat-card-content > span > p, mat-card-content > span > span{
+  padding: 15px 20px;
+}
+
+mat-card-content > span > p{
+  background-color: #212121;
+  border-radius: 10px 6px 6px 10px;
+  flex-basis:20%;
+}
+
+mat-card-content > span > span{
+  background-color: #303030;
+  border-radius: 6px 10px 10px 6px;
+  flex-basis: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  word-break: break-word;
+  gap: 10px;
+}
+
+.actions{
+  display: flex;
+  gap: 10px;
+}
+
+.actions > a{
+  cursor: pointer;
+  height: fit-content;
+  display: flex;
+}
+
+.actions > a > mat-icon{
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+
+mat-card > button{
+  display: flex;
+  align-self: end;
+}
+
+@media (min-width: 768px) {
+  .content{
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px){
+
+  mat-card-content{
+    gap: 20px;
+  }
+
+  mat-card-content > span{
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  mat-card-content > span > p, mat-card-content > span > span{
+    box-sizing: border-box;
+    padding: 10px 20px;
+    margin: 0;
+  }
+
+  mat-card-content > span > p{
+    border-radius: 10px 10px 6px 6px;
+    flex-basis: initial;
+    width: 100%;
+  }
+
+  mat-card-content > span > span{
+    border-radius: 6px 6px 10px 10px;
+    flex-basis: initial;
+    width: 100%;
+  }
+}
