@@ -14,6 +14,7 @@ import {
 	DATABASE_USERNAME,
 } from './config/constants';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -40,6 +41,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 			isGlobal: true,
 			envFilePath: './env/' + environments[process.env.NODE_ENV] || './env/development.env',
 		}),
+		AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
