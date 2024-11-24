@@ -2,6 +2,7 @@
 @if(!item().subItems){
   <a
   mat-list-item
+  (click)="collapse()"
   [routerLink]="item().route"
   class="menu-item"
   routerLinkActive="selected-menu-item"
@@ -11,7 +12,7 @@
     <mat-icon matListItemIcon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'">{{item().icon}}</mat-icon>
 
     @if (!collapse()) {
-      <span matListItemTitle>{{item().label}}</span>
+      <span matListItemTitle [style.white-space]="rla.isActive ? 'initial !important' : 'nowrap !important'">{{item().label}}</span>
     }
   </a>
 
@@ -20,12 +21,12 @@
   <a
   mat-list-item
   (click)="nestedMenuOpen.set(!nestedMenuOpen())"
-  class="menu-item">
+  class="menu-item" >
 
     <mat-icon matListItemIcon>{{item().icon}}</mat-icon>
 
     @if (!collapse()) {
-      <span matListItemTitle>{{item().label}}</span>
+      <span matListItemTitle [style.white-space]="nestedMenuOpen() ? 'initial !important' : 'nowrap !important'">{{item().label}}</span>
     }
 
     <span matListItemMeta>
@@ -41,7 +42,8 @@
       @for(subItem of item().subItems; track $index){
         <a
         mat-list-item
-        [routerLink]="subItem.route"
+        (click)="collapse()"
+        [routerLink]="item().route + subItem.route"
         class="menu-item"
         [class.indented]="!collapse()"
         routerLinkActive

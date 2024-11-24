@@ -29,11 +29,34 @@ export class MenuComponent {
     this.sidenavCollapse.set(value);
   }
 
+
   menuItems = signal<MenuItem[]>([
     {
       icon: 'home',
       label: 'Home',
       route: '/home',
+    },
+    {
+      icon: 'store',
+      label: 'Gimnasio',
+      route: '/gestion-gimnasio',
+      subItems: [
+        {
+          icon: 'settings',
+          label: 'Datos del gimnasio',
+          route: '/datos-gimnasio',
+        },
+        {
+          icon: 'fitness_center',
+          label: 'Ejercicios',
+          route: '/gestion-ejercicios',
+        },
+        {
+          icon: 'manage_accounts',
+          label: 'Usuarios',
+          route: '/gestion-usuarios',
+        },
+      ]
     }
   ]);
 
