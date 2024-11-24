@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.component';
+import { GestionGimnasioService } from './features/gimnasio/gestion-gimnasio.service';
+import { Gimnasio } from './shared/models/gimnasio.model';
+import { ApiResponse } from './shared/models/apiResponse.model';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +14,18 @@ import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.comp
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'gimnasios';
+
+  constructor(
+    private gestionGimnasioService: GestionGimnasioService
+  ){}
+
+
+  title = 'gimnasio';
+
+  
+  ngOnInit(){
+    this.gestionGimnasioService.getGimnasio().subscribe((data: ApiResponse<Gimnasio>) => {
+      this.title = data.data.nombre || 'gimnasio';
+    })
+  }
 }

@@ -1,0 +1,34 @@
+<div class="content">
+  <section>
+    <h1>{{gimnasioData?.nombre}}</h1>
+    <form [formGroup]="gimnasioForm" (submit)="onSubmit()">
+      <div>
+        <mat-form-field>
+          <mat-label>Nombre</mat-label>
+          <input type="text" formControlName="nombre" matInput placeholder="Nombre del gimnasio" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input type="email" formControlName="email" matInput placeholder="Email del gimnasio" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Dirección</mat-label>
+          <input type="text" formControlName="direccion" matInput placeholder="Dirección del gimnasio">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Celular Whatsapp</mat-label>
+          <input type="text" formControlName="celular_whatsapp" matInput placeholder="Celular Whatsapp del gimnasio" required>
+          <mat-icon matSuffix color="primary">phone</mat-icon>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Sitio Web</mat-label>
+          <input type="text" formControlName="sitio_web" matInput placeholder="Sitio web del gimnasio" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-stroked-button type="button" (click)="dialogRef.close()" color="contrast">Cancelar</button>
+        <button mat-raised-button type="submit" color="primary">Guardar cambios</button>
+      </div>
+    </form>
+  </section>
+</div>

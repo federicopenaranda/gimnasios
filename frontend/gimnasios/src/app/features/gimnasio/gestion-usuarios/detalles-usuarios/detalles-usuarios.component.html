@@ -1,0 +1,122 @@
+<div class="content">
+  <mat-card appearance="outlined">
+    <h1>Datos del usuario</h1>
+    <mat-card-content>
+      <span>
+        <p>Nombre: </p>
+        <span>
+          <p>{{userData?.nombre}}</p>
+          <div class="actions"></div>
+        </span>
+      </span>
+
+      <span>
+        <p>Apellido: </p>
+        <span>
+          <p>{{userData?.apellido}}</p>
+          <div class="actions"></div>
+        </span>
+      </span>
+
+      <span>
+        <p>Email: </p>
+        <span>
+          <p>{{userData?.email}}</p>
+          <div class="actions"></div>
+        </span>
+      </span>
+
+      <span>
+        <p>Teléfono: </p>
+        <span>
+          <p>{{userData?.telefono}}</p>
+          <div class="actions"></div>
+        </span>
+      </span>
+
+      <span>
+        <p>Celular: </p>
+        <span>
+          <p>{{userData?.celular}}</p>
+          <div class="actions"></div>
+        </span>
+      </span>
+
+      <span>
+        <p>Cédula: </p>
+        <span>
+          <p>{{userData?.cedula}}</p>
+          <div class="actions"></div>
+        </span>
+      </span>
+
+      <span>
+        <p>Edad: </p>
+        <span>
+          <p>{{userData?.edad}}</p>
+          <div class="actions"></div>
+        </span>
+      </span>
+
+      <span>
+        <p>Fecha de nacimiento: </p>
+        <span>
+          <p>{{userData?.fecha_nacimiento}}</p>
+          <div class="actions"></div>
+        </span>
+      </span>
+
+      <span>
+        <p>Dirección: </p>
+        <span>
+          <p>{{userData?.direccion}}</p>
+          <div class="actions"></div>
+        </span>
+      </span>
+
+      <span>
+        <p>Cobertura medica: </p>
+        <span>
+          <p>{{userData?.cobertura_medica}}</p>
+          <div class="actions"></div>
+        </span>
+      </span>
+
+      <span>
+        <p>Emergencia movil: </p>
+        <span>
+          <p>{{userData?.emergencia_movil}}</p>
+          <div class="actions"></div>
+        </span>
+      </span>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card appearance="outlined">
+    <h1>Contactos del usuario</h1>
+    <mat-card-content>
+      @for(item of userData?.usuario_contacto; track item.id){
+      <span>
+          <p>Telefono | {{item.relacion_contacto}}: </p>
+          <span>
+              <p>{{item.telefono_contacto}}</p>
+          </span>
+        </span>
+      }
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card appearance="outlined">
+    <h1>Condiciones del usuario</h1>
+    <mat-card-content>
+      @for(item of userData?.usuario_condicion; track item.id){
+      <span>
+          <p>{{item.tipo_condicion}}: </p>
+          <span>
+              <p>{{item.descripcion}}</p>
+          </span>
+        </span>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,25 @@
+<div class="content">
+  <section>
+    <form [formGroup]="ejercicioForm" (submit)="onSubmit()">
+      <h1>Datos del ejercicio</h1>
+      <div>
+        <mat-form-field>
+          <mat-label>Nombre</mat-label>
+          <input type="text" formControlName="nombre" matInput placeholder="Nombre del ejercicio" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Grupo muscular</mat-label>
+          <input type="text" formControlName="grupo_muscular" matInput placeholder="Grupo muscular del ejercicio" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Descripción</mat-label>
+          <input type="text" formControlName="descripcion" matInput placeholder="Descripción del ejercicio" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-stroked-button type="button" (click)="dialogRef.close({dialogResult: 0})" color="contrast">Cancelar</button>
+        <button mat-raised-button type="submit" color="primary">Guardar cambios</button>
+      </div>
+    </form>
+  </section>
+</div>

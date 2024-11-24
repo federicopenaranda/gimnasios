@@ -1,0 +1,41 @@
+<div class="content">
+  <h1>Gestión de ejercicios</h1>
+  <section>
+    @for(ejercicioData of gimnasioEjercicios; track ejercicioData.id){
+      <mat-card appearance="outlined">
+        <mat-card-content>
+          <span>
+            <p>Nombre: </p>
+            <span>
+              <p>{{ejercicioData?.nombre}}</p>
+            </span>
+          </span>
+          <span>
+            <p>Grupo Muscular: </p>
+            <span>
+              <p>{{ejercicioData?.grupo_muscular}}</p>
+            </span>
+          </span>
+        </mat-card-content>
+        <mat-card-content>
+          <span>
+            <p>Descripción: </p>
+            <span>
+              <p>{{ejercicioData?.descripcion}}</p>
+            </span>
+          </span>
+        </mat-card-content>
+        <mat-card-actions class="actions">
+          <a matTooltip="Editar Ejercicio" (click)="editarEjercicio(ejercicioData)">
+            <mat-icon color="accent">edit</mat-icon>
+          </a>
+          <a matTooltip="Eliminar Ejercicio" (click)="eliminarEjercicio(ejercicioData)">
+            <mat-icon color="warn">delete</mat-icon>
+          </a>
+        </mat-card-actions>
+      </mat-card>
+      <mat-divider></mat-divider>
+    }
+  </section>
+  <button mat-raised-button color="primary" (click)="crearEjercicio()" >Crear ejercicio</button>
+</div>

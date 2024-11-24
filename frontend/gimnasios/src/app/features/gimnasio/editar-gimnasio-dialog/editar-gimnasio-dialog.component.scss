@@ -1,0 +1,32 @@
+.content{
+  width: 100%;
+}
+
+.content section{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content section > h1{
+  color: white;
+}
+
+.content section > form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.content section > form > div:nth-child(1){
+  display: flex;
+  flex-direction: column;
+}
+
+.content section > form > div:nth-child(2){
+  display: flex;
+  gap: 10px;
+  align-self: end;
+}

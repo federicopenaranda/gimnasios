@@ -1,0 +1,136 @@
+<div class="content">
+  <section>
+    <form [formGroup]="userForm" (submit)="onSubmit()">
+      <h1>Datos del usuario</h1>
+      <div>
+        <mat-form-field>
+          <mat-label>Nombre</mat-label>
+          <input type="text" formControlName="nombre" matInput placeholder="Nombre del usuario" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Apellido</mat-label>
+          <input type="text" formControlName="apellido" matInput placeholder="Apellido del usuario" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input type="email" formControlName="email" matInput placeholder="Email del usuario" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Teléfono</mat-label>
+          <input type="text" formControlName="telefono" matInput placeholder="Teléfono del usuario" required>
+          <mat-icon matSuffix color="primary">phone</mat-icon>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Celular</mat-label>
+          <input type="text" formControlName="celular" matInput placeholder="Celular del usuario" required>
+          <mat-icon matSuffix color="primary">phone_android</mat-icon>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Cédula</mat-label>
+          <input type="text" formControlName="cedula" matInput placeholder="Cédula del usuario" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Contraseña</mat-label>
+          <input type="password" formControlName="contrasena" matInput placeholder="Contraseña del usuario" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Edad</mat-label>
+          <input type="number" formControlName="edad" matInput placeholder="Edad del usuario" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Fecha de nacimiento</mat-label>
+          <input type="date" formControlName="fecha_nacimiento" matInput placeholder="Fecha de nacimiento del usuario" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Dirección</mat-label>
+          <input type="text" formControlName="direccion" matInput placeholder="Dirección del usuario" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Cobertura médica</mat-label>
+          <input type="text" formControlName="cobertura_medica" matInput placeholder="Cobertura médica del usuario" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Emergencia móvil</mat-label>
+          <input type="text" formControlName="emergencia_movil" matInput placeholder="Emergencia movil del usuario" required>
+        </mat-form-field>
+      </div>
+
+
+      <div>
+        <h1>Contactos del usuario</h1>
+        <form [formGroup]="userForm" >
+          <ng-container formArrayName="usuario_contacto">
+            @for(contacto of usuarioContacto?.controls; let i = $index; track $index ){
+              <div [formGroupName]="i" >
+                <div>
+                  <mat-form-field>
+                    <mat-label>Teléfono del contacto</mat-label>
+                    <input matInput formControlName="telefono_contacto" placeholder="Teléfono del contacto" required>
+                    <mat-icon matSuffix color="primary">phone</mat-icon>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Relación del contacto</mat-label>
+                    <input matInput formControlName="relacion_contacto" placeholder="Relación del contacto" required>
+                  </mat-form-field>
+                </div>
+                <button mat-icon-button color="warn" (click)="removeUsuarioContacto(i)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            }
+          </ng-container>
+          <button mat-raised-button color="primary" (click)="addUsuarioContacto()">Agregar Contacto</button>
+        </form>
+
+
+
+
+
+
+
+
+        <h1>Condiciones del usuario</h1>
+        <form [formGroup]="userForm" >
+          <ng-container formArrayName="usuario_condicion">
+            @for(condicion of usuarioCondicion?.controls; let i = $index; track $index ){
+              <div [formGroupName]="i" >
+                <div>
+                  <mat-form-field>
+                    <mat-label>Tipo de condición</mat-label>
+                    <input matInput formControlName="tipo_condicion" placeholder="Tipo de condición" required>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Descripción</mat-label>
+                    <input matInput formControlName="descripcion" placeholder="Descripción de la condición" required>
+                  </mat-form-field>
+                </div>
+                <button mat-icon-button color="warn" (click)="removeUsuarioCondicion(i)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            }
+          </ng-container>
+          <button mat-raised-button color="primary" (click)="addUsuarioCondicion()">Agregar condición</button>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+      <div>
+        <button mat-stroked-button type="button" (click)="dialogRef.close()" color="contrast">Cancelar</button>
+        <button mat-raised-button type="submit" color="primary">Guardar cambios</button>
+      </div>
+    </form>
+  </section>
+</div>

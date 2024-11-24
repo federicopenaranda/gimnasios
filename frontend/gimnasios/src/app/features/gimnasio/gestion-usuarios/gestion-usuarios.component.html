@@ -1,0 +1,33 @@
+<div class="content">
+  <h1>Gestión de usuarios</h1>
+  <section>
+    @for(userData of gimnasioUsers; track userData.id){
+      <mat-card appearance="outlined">
+        <mat-card-content>
+          <span>
+            <p>Nombre: </p>
+            <span>
+              <p>{{userData?.nombre}}</p>
+            </span>
+          </span>
+          <span>
+            <p>Apellido: </p>
+            <span>
+              <p>{{userData?.apellido}}</p>
+            </span>
+          </span>
+        </mat-card-content>
+        <mat-card-actions class="actions">
+          <!-- <mat-slide-toggle matTooltip="Desactivar Usuario" [(ngModel)]="deshabilitarUsuarioToggle" (change)="deshabilitarUsuario($event.checked)"></mat-slide-toggle> -->
+          <a matTooltip="Editar Usuario" (click)="editarUsuario(userData)">
+            <mat-icon color="accent">edit</mat-icon>
+          </a>
+          <a matTooltip="Ver Detalles" [routerLink]="'/usuario/'+userData.id">
+            <mat-icon color="accent">info</mat-icon>
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </section>
+  <button mat-raised-button color="primary" (click)="crearUsuario()" >Crear usuario</button>
+</div>

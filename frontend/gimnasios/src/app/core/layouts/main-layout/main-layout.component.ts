@@ -1,4 +1,4 @@
-import { Component, computed, HostListener, signal } from '@angular/core';
+import { Component, computed, HostListener, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from "@angular/material/sidenav";
@@ -20,10 +20,12 @@ import { MenuComponent } from '../../components/menu/menu.component';
 })
 export class MainLayoutComponent {
 
+  @Input() projectTitle!: string;
   collapse = signal(true);
   windowWidth = signal(window.innerWidth);
   isMobile = signal(this.windowWidth() < 800);
   sidenavWidth = computed(() => this.isMobile() ? this.collapse() ? '0' : '100%' : this.collapse() ? '65px' : '250px');
+
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
@@ -31,8 +33,10 @@ export class MainLayoutComponent {
     this.isMobile.set(this.windowWidth() < 800);
   }
 
+
   updateCollapse(newValue: boolean) {
     this.collapse.set(newValue);
   }
+  
 
 }
