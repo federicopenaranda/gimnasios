@@ -19,4 +19,12 @@ export class CreateUsuarioRutinaDto {
   @IsInt()
   @IsPositive()
   orden: number;
+
+  @IsInt()
+  @IsPositive()
+  nro_series: number;
+
+  @IsInt()
+  @IsPositive()
+  nro_repeticiones: number;
 }

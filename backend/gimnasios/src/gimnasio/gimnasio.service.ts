@@ -3,7 +3,7 @@ import { CreateGimnasioDto } from './dtos/create-gimnasio.dto';
 import { UpdateGimnasioDto } from './dtos/update-gimnasio.dto';
 import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { Gimnasio } from './entities/gimnasios.entity';
-import { DataSource, Repository } from 'typeorm';
+import { Brackets, DataSource, Repository } from 'typeorm';
 import { Ejercicio } from 'src/ejercicio/entities/ejercicios.entity';
 import { CreateUsuarioGimnasioDto } from './dtos/create-usuario-gimnasio.dto';
 import { UsuarioGimnasio } from 'src/usuario/entities/usuario-gimnasio.entity';
@@ -81,8 +81,30 @@ export class GimnasioService {
     }
 
     async registroUsuarioGimnasio(dto: CreateUsuarioGimnasioDto) {
-        const newRecObj = this.usuarioGimnasioRepository.create(dto);
-        return await this.usuarioGimnasioRepository.save(newRecObj);
+        const res = await this.usuarioGimnasioRepository.createQueryBuilder('usuarioGimnasio')
+            .where('usuarioGimnasio.fk_id_usuario = :fk_id_usuario', {
+                fk_id_usuario: dto.fk_id_usuario
+            })
+            .andWhere('usuarioGimnasio.fk_id_gimnasio = :fk_id_gimnasio', {
+                fk_id_gimnasio: dto.fk_id_gimnasio
+            })
+            .andWhere(
+                new Brackets(qb => {
+                    qb.where('usuarioGimnasio.fecha_fin IS NULL')
+                    .orWhere('usuarioGimnasio.fecha_fin >= CURRENT_DATE');
+                })
+            )
+            .getMany();
+
+        // Usuario ya está registrado en el gimnasio
+        if ( res.length ) {
+            throw new HttpException('Usuario ya registrado en el gimnasio.', HttpStatus.CONFLICT);
+        } 
+        // No hay registro activo del usuario en el gimnasio, registrarlo.
+        else {
+            const newRecObj = this.usuarioGimnasioRepository.create(dto);
+            return await this.usuarioGimnasioRepository.save(newRecObj);    
+        }
     }
 
 }

@@ -250,10 +250,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</constraint>
 </table>
 
-<table name="rutina" layers="0" collapse-mode="1" max-obj-count="6" z-value="0">
+<table name="rutina" layers="0" collapse-mode="1" max-obj-count="8" z-value="0">
 	<schema name="public"/>
 	<role name="postgres"/>
-	<position x="1060" y="300"/>
+	<position x="1080" y="260"/>
 	<column name="id" not-null="true"
 	 identity-type="ALWAYS">
 		<type name="bigint" length="0"/>
@@ -268,6 +268,12 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="smallint" length="0"/>
 	</column>
 	<column name="orden" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nro_series" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="nro_repeticiones" not-null="true">
 		<type name="smallint" length="0"/>
 	</column>
 	<constraint name="rutina_pk" type="pk-constr" table="public.rutina">

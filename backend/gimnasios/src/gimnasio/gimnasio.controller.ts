@@ -190,15 +190,14 @@ export class GimnasioController {
                 message: `Usuario registrado en Gimnasio.`
             } as ServerResponse;
         } catch(e) {
-            throw new BadRequestException({
+            throw new HttpException({
                 success: false,
-                statusCode: HttpStatus.BAD_REQUEST,
+                statusCode: e.status,
                 data: '',
                 error: e.message,
                 message: `Error al registrar el usuario.`
-            } as ServerResponse);
+            } as ServerResponse, e.status);
         }
     }
 
-    
 }

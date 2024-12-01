@@ -17,4 +17,10 @@ export class Rutina {
 
   @Column({ type: 'smallint', nullable: false })
   orden: number;
+
+  @Column({ type: 'smallint', nullable: false, default: 1 })
+  nro_series: number;
+
+  @Column({ type: 'smallint', nullable: false, default: 1 })
+  nro_repeticiones: number;
 }

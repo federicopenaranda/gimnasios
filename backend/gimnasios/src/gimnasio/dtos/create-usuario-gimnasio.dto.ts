@@ -1,4 +1,5 @@
 import { IsNotEmpty, IsNumber, IsDateString, IsOptional } from 'class-validator';
+import { IsFutureDate } from 'src/shared/custom-validators';
 
 export class CreateUsuarioGimnasioDto {
   @IsNotEmpty()
@@ -15,5 +16,6 @@ export class CreateUsuarioGimnasioDto {
 
   @IsOptional()
   @IsDateString()
+  @IsFutureDate({ message: 'La fecha de fin debe estar en el futuro.' })
   fecha_fin?: string;
 }

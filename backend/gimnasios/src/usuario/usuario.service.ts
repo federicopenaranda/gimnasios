@@ -14,6 +14,7 @@ import { UsuarioCondicion } from './entities/usuario-condicion.entity';
 import { RegistroEjercicio } from './entities/registro-ejercicio.entity';
 import { CreateUsuarioRutinaDto } from './dtos/create-usuario-rutina.dto';
 import { Rutina } from './entities/rutina.entity';
+import { UsuarioGimnasio } from './entities/usuario-gimnasio.entity';
 
 
 @Injectable()
@@ -30,6 +31,8 @@ export class UsuarioService {
         private readonly registroEjercicioRepository: Repository<RegistroEjercicio>,
         @InjectRepository(Rutina)
         private readonly rutinaRepository: Repository<Rutina>,
+        @InjectRepository(UsuarioGimnasio)
+        private readonly usuarioGimnasioRepository: Repository<UsuarioGimnasio>,
         @InjectDataSource()
         private dataSource: DataSource,
     ) {}
@@ -201,19 +204,32 @@ export class UsuarioService {
         }
 
         return await this.dataSource.query(
-            `SELECT e.*, u.nombre FROM ejercicios e 
-                INNER JOIN rutina r ON r.fk_id_ejercicio = e.id 
-                INNER JOIN usuarios u ON u.id = r.fk_id_usuario 
-            WHERE u.id = ${id} AND r.dia_semana = (
-                SELECT EXTRACT(ISODOW FROM '${fechaOk}'::date) AS iso_day_number
-                --SELECT EXTRACT(ISODOW FROM CURRENT_DATE) AS iso_day_number
-            )
-            ORDER BY r.orden asc`
+            `SELECT e.*, r.*, re2.repeticiones as re_repeticiones, re2.peso as re_peso
+                FROM 
+                    ejercicios e
+                INNER JOIN 
+                    rutina r ON r.fk_id_ejercicio = e.id
+                INNER JOIN 
+                    usuarios u ON u.id = r.fk_id_usuario
+                LEFT JOIN (
+                    SELECT re.fk_id_usuario, re.fk_id_ejercicio, re.repeticiones, re.peso
+                    FROM registro_ejercicios re
+                    WHERE re.fk_id_usuario = ${id}
+                    order by re.fecha desc
+                    limit 1
+                ) re2 ON re2.fk_id_ejercicio = e.id AND re2.fk_id_usuario = u.id
+                WHERE 
+                    u.id = ${id}
+                    AND r.dia_semana = (
+                        SELECT EXTRACT(ISODOW FROM '${fechaOk}'::date) AS iso_day_number
+                        --SELECT EXTRACT(ISODOW FROM CURRENT_DATE) AS iso_day_number
+                    )
+                ORDER BY 
+                    r.orden ASC;`
         );
     }
 
     async guardaUsuarioRutina(dto: CreateUsuarioRutinaDto[], id: number): Promise<any> {
-
         if ( dto.length === 0 ) {
             throw new HttpException(`Rutina vacía`, HttpStatus.BAD_REQUEST);
         }
@@ -254,5 +270,10 @@ export class UsuarioService {
             }});
         return await this.rutinaRepository.remove(usuarioRutina);
     }
+
+    async usuarioGimnasio(id: number): Promise<UsuarioGimnasio[]> {
+        return await this.usuarioGimnasioRepository.find({ where: { fk_id_usuario: id } });
+    }
+
 
 }

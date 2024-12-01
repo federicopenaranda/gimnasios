@@ -435,4 +435,28 @@ export class UsuarioController {
         }
     }
 
+    @Get(':id/usuarioGimnasio')
+	async getUsuarioGimnasio(
+        @Param('id') id: number
+    ) {
+        try {
+            const res = await this.usuarioService.usuarioGimnasio(+id);
+            return {
+                success: true,
+                statusCode: HttpStatus.OK,
+                data: res,
+                error: '',
+                message: `Datos de Usuario y Gimnasio devueltos.`
+            } as ServerResponse;
+        } catch(e) {
+            throw new BadRequestException({
+                success: false,
+                statusCode: HttpStatus.BAD_REQUEST,
+                data: '',
+                error: e.message,
+                message: `Error al obtener los datos de Usuaario y Gimnasio.`
+            } as ServerResponse);
+        }
+    }
+
 }
