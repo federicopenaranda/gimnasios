@@ -6,6 +6,7 @@
   [routerLink]="item().route"
   class="menu-item"
   routerLinkActive="selected-menu-item"
+  color="primary"
   #rla="routerLinkActive"
   [activated]="rla.isActive">
 
@@ -20,6 +21,7 @@
 
   <a
   mat-list-item
+  color="primary"
   (click)="nestedMenuOpen.set(!nestedMenuOpen())"
   class="menu-item" >
 
@@ -42,9 +44,10 @@
       @for(subItem of item().subItems; track $index){
         <a
         mat-list-item
+        color="primary"
         (click)="collapse()"
         [routerLink]="item().route + subItem.route"
-        class="menu-item"
+        class="menu-item nested-menu-item"
         [class.indented]="!collapse()"
         routerLinkActive
         #rla="routerLinkActive"
@@ -53,7 +56,7 @@
           <mat-icon matListItemIcon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'">{{subItem.icon}}</mat-icon>
 
           @if (!collapse()) {
-            <span matListItemTitle>{{subItem.label}}</span>
+            <span matListItemTitle color="primary">{{subItem.label}}</span>
           }
         </a>
       }

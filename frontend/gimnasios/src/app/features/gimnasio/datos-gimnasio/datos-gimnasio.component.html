@@ -3,55 +3,57 @@
   <mat-card appearance="outlined">
     <mat-card-content>
       <span>
-        <p>Nombre: </p>
-        <span>
+        <p class="item-data-title">Nombre: </p>
+        <span class="item-data-info">
           <p>{{gimnasioData?.nombre}}</p>
           <div class="actions"></div>
         </span>
       </span>
       <span>
-        <p>Email: </p>
-        <span>
+        <p class="item-data-title">Email: </p>
+        <span class="item-data-info">
           <p>{{gimnasioData?.email}}</p>
           <div class="actions"></div>
         </span>
       </span>
       <span>
-        <p>Dirección: </p>
-        <span>
+        <p class="item-data-title">Dirección: </p>
+        <span class="item-data-info">
           <p>{{gimnasioData?.direccion}}</p>
           <div class="actions"></div>
         </span>
       </span>
       <span>
-        <p>Celular Whatsapp: </p>
-        <span>
+        <p class="item-data-title">Celular Whatsapp: </p>
+        <span class="item-data-info">
           <p>{{gimnasioData?.celular_whatsapp}}</p>
           <div class="actions">
             <a matTooltip="Llamar" [href]="'tel:' + gimnasioData?.celular_whatsapp">
-              <mat-icon color="primary">phone</mat-icon>
+              <mat-icon color="secondary">phone</mat-icon>
             </a>
           </div>
         </span>
       </span>
       <span>
-        <p>Sitio Web: </p>
-        <span>
+        <p class="item-data-title">Sitio Web: </p>
+        <span class="item-data-info">
           <p>{{gimnasioData?.sitio_web}}</p>
           <div class="actions">
             <a matTooltip="Copiar" [cdkCopyToClipboard]="gimnasioData?.sitio_web || ''">
               <mat-icon color="primary">content_copy</mat-icon>
             </a>
             <a matTooltip="Abrir sitio web" [href]="gimnasioData?.sitio_web" target="_blank">
-              <mat-icon color="primary">open_in_new</mat-icon>
+              <mat-icon color="primary" fontIcon="open_in_new"></mat-icon>
             </a>
           </div>
         </span>
       </span>
     </mat-card-content>
-    <button color="primary" mat-flat-button (click)="editarGimnasio()">
-      <mat-icon>edit</mat-icon>
-      Editar
-    </button>
+    <mat-card-actions>
+      <button mat-raised-button (click)="editarGimnasio()">
+        <mat-icon>edit</mat-icon>
+        Editar
+      </button>
+    </mat-card-actions>
   </mat-card>
 </div>

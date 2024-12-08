@@ -6,6 +6,7 @@ import { GestionEjerciciosComponent } from './features/gimnasio/gestion-ejercici
 import { GestionUsuariosComponent } from './features/gimnasio/gestion-usuarios/gestion-usuarios.component';
 import { GestionGimnasioComponent } from './features/gimnasio/gestion-gimnasio.component';
 import { DetallesUsuariosComponent } from './features/gimnasio/gestion-usuarios/detalles-usuarios/detalles-usuarios.component';
+import { RutinaComponent } from './features/rutina/rutina.component';
 
 export const routes: Routes = [
   {
@@ -42,6 +43,10 @@ export const routes: Routes = [
   {
     path: 'usuario/:id',
     component: DetallesUsuariosComponent
+  },
+  {
+    path: 'rutina',
+    component: RutinaComponent
   },
   {
     path:'**',

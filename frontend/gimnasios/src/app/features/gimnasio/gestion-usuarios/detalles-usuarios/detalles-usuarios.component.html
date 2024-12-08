@@ -3,88 +3,88 @@
     <h1>Datos del usuario</h1>
     <mat-card-content>
       <span>
-        <p>Nombre: </p>
-        <span>
+        <p class="item-data-title">Nombre: </p>
+        <span class="item-data-info">
           <p>{{userData?.nombre}}</p>
           <div class="actions"></div>
         </span>
       </span>
 
       <span>
-        <p>Apellido: </p>
-        <span>
+        <p class="item-data-title">Apellido: </p>
+        <span class="item-data-info">
           <p>{{userData?.apellido}}</p>
           <div class="actions"></div>
         </span>
       </span>
 
       <span>
-        <p>Email: </p>
-        <span>
+        <p class="item-data-title">Email: </p>
+        <span class="item-data-info">
           <p>{{userData?.email}}</p>
           <div class="actions"></div>
         </span>
       </span>
 
       <span>
-        <p>Teléfono: </p>
-        <span>
+        <p class="item-data-title">Teléfono: </p>
+        <span class="item-data-info">
           <p>{{userData?.telefono}}</p>
           <div class="actions"></div>
         </span>
       </span>
 
       <span>
-        <p>Celular: </p>
-        <span>
+        <p class="item-data-title">Celular: </p>
+        <span class="item-data-info">
           <p>{{userData?.celular}}</p>
           <div class="actions"></div>
         </span>
       </span>
 
       <span>
-        <p>Cédula: </p>
-        <span>
+        <p class="item-data-title">Cédula: </p>
+        <span class="item-data-info">
           <p>{{userData?.cedula}}</p>
           <div class="actions"></div>
         </span>
       </span>
 
       <span>
-        <p>Edad: </p>
-        <span>
+        <p class="item-data-title">Edad: </p>
+        <span class="item-data-info">
           <p>{{userData?.edad}}</p>
           <div class="actions"></div>
         </span>
       </span>
 
       <span>
-        <p>Fecha de nacimiento: </p>
-        <span>
+        <p class="item-data-title">Fecha de nacimiento: </p>
+        <span class="item-data-info">
           <p>{{userData?.fecha_nacimiento}}</p>
           <div class="actions"></div>
         </span>
       </span>
 
       <span>
-        <p>Dirección: </p>
-        <span>
+        <p class="item-data-title">Dirección: </p>
+        <span class="item-data-info">
           <p>{{userData?.direccion}}</p>
           <div class="actions"></div>
         </span>
       </span>
 
       <span>
-        <p>Cobertura medica: </p>
-        <span>
+        <p class="item-data-title">Cobertura medica: </p>
+        <span class="item-data-info">
           <p>{{userData?.cobertura_medica}}</p>
           <div class="actions"></div>
         </span>
       </span>
 
       <span>
-        <p>Emergencia movil: </p>
-        <span>
+        <p class="item-data-title">Emergencia movil: </p>
+        <span class="item-data-info">
           <p>{{userData?.emergencia_movil}}</p>
           <div class="actions"></div>
         </span>
@@ -97,9 +97,9 @@
     <mat-card-content>
       @for(item of userData?.usuario_contacto; track item.id){
       <span>
-          <p>Telefono | {{item.relacion_contacto}}: </p>
-          <span>
-              <p>{{item.telefono_contacto}}</p>
+          <p class="item-data-title">Telefono | {{item.relacion_contacto}}: </p>
+          <span class="item-data-info">
+              <p >{{item.telefono_contacto}}</p>
           </span>
         </span>
       }
@@ -111,8 +111,8 @@
     <mat-card-content>
       @for(item of userData?.usuario_condicion; track item.id){
       <span>
-          <p>{{item.tipo_condicion}}: </p>
-          <span>
+          <p class="item-data-title">{{item.tipo_condicion}}: </p>
+          <span class="item-data-info">
               <p>{{item.descripcion}}</p>
           </span>
         </span>

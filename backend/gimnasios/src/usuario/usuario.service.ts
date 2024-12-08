@@ -121,7 +121,7 @@ export class UsuarioService {
 
     async usuarioRutina(id: number): Promise<any> {
         return await this.dataSource.query(
-            `SELECT e.*, u.nombre, u.apellido, r.dia_semana, r.orden 
+            `SELECT e.*, r.* 
             FROM ejercicios e 
                 INNER JOIN rutina r ON r.fk_id_ejercicio = e.id 
                 INNER JOIN usuarios u ON u.id = r.fk_id_usuario 

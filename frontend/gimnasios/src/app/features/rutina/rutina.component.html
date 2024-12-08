@@ -1,0 +1,66 @@
+<div class="content">
+  <h1>Gestionar rutina</h1>
+  <section>
+    <mat-stepper [orientation]="windowWidth() <= 768 ? 'vertical' : 'horizontal'" [linear]="false" #stepper>
+    <form [formGroup]="formRutina">
+
+      @for(dia of semana; track $index){
+        <mat-step [formArrayName]="'dia_'+dia.number">
+          <div class="step-container">
+
+            <ng-template matStepLabel>{{dia.name | titlecase}}</ng-template>
+            <h1>Rutina del {{dia.name}}</h1>
+            <section>
+              <mat-accordion class="ejercicios-container" cdkDropList (cdkDropListDropped)="drop($event, dia.number)">
+                @for(rutina of getFormRutinaDia(dia.number).controls; let i = $index; track rutina){
+                  <div cdkDrag cdkDragLockAxis="y">
+                      <mat-card appareance="outlined" class="ejercicio-preview" *cdkDragPreview>
+                        <mat-card-content>
+                          Ejercicio {{i}}
+                        </mat-card-content>
+                      </mat-card>
+                    <mat-icon [style.cursor]="'pointer'" cdkDragHandle>drag_indicator</mat-icon>
+                    <mat-expansion-panel [formGroupName]="i">
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Ejercicio {{i}}
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <div class="ejercicio-item">
+                        <mat-form-field>
+                          <mat-label>Ejercicio</mat-label>
+                          <mat-select formControlName="fk_id_ejercicio" color="primary">
+                            @for(ejercicio of gimnasioEjercicios; track $index){
+                              <mat-option [value]="+ejercicio.id">
+                                {{ejercicio.nombre}}
+                              </mat-option>
+                            }
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-form-field>
+                          <mat-label>Series</mat-label>
+                          <input type="number" formControlName="nro_series" matInput placeholder="Cantidad de series" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                          <mat-label>Repeticiones</mat-label>
+                          <input type="number" formControlName="nro_repeticiones" matInput placeholder="Cantidad de repeticiones" required>
+                        </mat-form-field>
+                      </div>
+                    </mat-expansion-panel>
+                    <mat-icon class="warn-color" [style.cursor]="'pointer'" (click)="eliminarEjercicio(i, dia.number)">remove_circle_outline</mat-icon>
+                  </div>
+                }
+              </mat-accordion>
+              <button mat-raised-button color="primary" type="button" (click)="addEjercicioDia(dia.number)">Agregar ejercicio</button>
+            </section>
+            <button mat-raised-button color="primary" type="button" (click)="guardarRutinaDia(dia.number)">Guardar</button>
+          </div>
+        </mat-step>
+
+      }
+
+
+      </form>
+    </mat-stepper>
+  </section>
+</div>

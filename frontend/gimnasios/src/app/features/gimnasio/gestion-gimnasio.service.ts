@@ -37,12 +37,12 @@ export class GestionGimnasioService {
     )
   }
 
-  getGimnasioEjercicios(){
-    return this.http.get<ApiResponse<Ejercicio[]>>(this.utilsService.replaceUrlId(CONSTANTS.get_gimnasio_ejercicios, `${this.hardcodedGimnasio}`)).pipe(
-      tap((response: ApiResponse<Ejercicio[]>) => this.utilsService.log(`getGimnasioEjercicios Response: ${response}`)),
-      catchError(this.utilsService.handleError<ApiResponse<Ejercicio[]>>())
-    )
-  }
+    getGimnasioEjercicios(){
+      return this.http.get<ApiResponse<Ejercicio[]>>(this.utilsService.replaceUrlId(CONSTANTS.get_gimnasio_ejercicios, `${this.hardcodedGimnasio}`)).pipe(
+        tap((response: ApiResponse<Ejercicio[]>) => this.utilsService.log(`getGimnasioEjercicios Response: ${response}`)),
+        catchError(this.utilsService.handleError<ApiResponse<Ejercicio[]>>())
+      )
+    }
 
   getUsuario(id: number): Observable<ApiResponse<User>>{
     return this.http.get<ApiResponse<User>>(CONSTANTS.get_usuario + id).pipe(

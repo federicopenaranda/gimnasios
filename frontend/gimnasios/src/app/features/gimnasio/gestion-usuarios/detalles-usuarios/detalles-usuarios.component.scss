@@ -42,14 +42,12 @@ mat-card-content > span > p, mat-card-content > span > span{
 }
 
 mat-card-content > span > p{
-  background-color: #212121;
-  border-radius: 10px 6px 6px 10px;
+  border-radius: 100px;
   flex-basis:20%;
 }
 
 mat-card mat-card-content > span > span{
-  background-color: #303030;
-  border-radius: 6px 10px 10px 6px;
+  border-radius: 100px;
   flex-basis: 80%;
   display: flex;
   align-items: center;

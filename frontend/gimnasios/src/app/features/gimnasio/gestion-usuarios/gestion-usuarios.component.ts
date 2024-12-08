@@ -13,6 +13,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EditarUsuarioDialogComponent } from '../editar-usuario-dialog/editar-usuario-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { CrearUsuarioDialogComponent } from '../crear-usuario-dialog/crear-usuario-dialog.component';
+import { MatDivider } from '@angular/material/divider';
 
 @Component({
   selector: 'app-gestion-usuarios',
@@ -25,7 +26,8 @@ import { CrearUsuarioDialogComponent } from '../crear-usuario-dialog/crear-usuar
     RouterLink,
     MatTooltipModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    MatDivider
   ],
   templateUrl: './gestion-usuarios.component.html',
   styleUrl: './gestion-usuarios.component.scss'

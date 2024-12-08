@@ -14,12 +14,12 @@ mat-toolbar{
 
 .selected-toolbar{
   position: relative;
-  border-bottom: 5px solid var(--primary-color);
+  border-bottom: 5px solid var(--theme-primary-30);
   background-color: rgba(0,0,0,.05);
 }
 
 .selected-toolbar mat-icon{
-  color: var(--primary-color);
+  color: var(--theme-primary-30);
 }
 
 .mat-toolbar a[mat-icon-button], .mat-toolbar button[mat-icon-button] {
