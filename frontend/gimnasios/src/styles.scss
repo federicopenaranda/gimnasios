@@ -1,53 +1,62 @@
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
-@import 'media';
-// Plus imports for other components in your app.
+@use '../src/app/styles/m3-theme.scss';
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
 @include mat.core();
 
-$mat-primary: (
-  main: #e13232,
-  lighter: #c14545,
-  darker: #7c0000,
-  200: #cc0000,
-  contrast: (
-    main: #FFFFFF,
-    lighter: #FFFFFF,
-    darker: #FFFFFF,
-  ),
-);
+html {
+  @include mat.all-component-themes(m3-theme.$dark-theme);
+}
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$theme-primary: mat.m2-define-palette($mat-primary, main, lighter,darker);
-$theme-accent: mat.m2-define-palette(mat.$m2-indigo-palette, A200, A100, A400);
+:root {
+    --theme-primary:#cc0000;
+    --theme-secondary:#3e5501;
+    --theme-tertiary:#3e495f;
+    --theme-warn: #ae1c1c;
+    --theme-primary-10:#{mat.get-theme-color(m3-theme.$dark-theme, primary, 10)};
+    --theme-primary-20:#{mat.get-theme-color(m3-theme.$dark-theme, primary, 20)};
+    --theme-primary-30:#{mat.get-theme-color(m3-theme.$dark-theme, primary, 30)};
+    --theme-secondary-10:#{mat.get-theme-color(m3-theme.$dark-theme, secondary, 10)};
+    --theme-tertiary-10:#{mat.get-theme-color(m3-theme.$dark-theme, tertiary, 10)};
+    --theme-error-10:#{mat.get-theme-color(m3-theme.$dark-theme, error, 10)};
+    --theme-neutral-4:#{mat.get-theme-color(m3-theme.$dark-theme, neutral, 4)};
+    --theme-neutral-6:#{mat.get-theme-color(m3-theme.$dark-theme, neutral, 6)};
+    --theme-neutral-10:#{mat.get-theme-color(m3-theme.$dark-theme, neutral, 10)};
+    --theme-neutral-12:#{mat.get-theme-color(m3-theme.$dark-theme, neutral, 12)};
+    --theme-neutral-17:#{mat.get-theme-color(m3-theme.$dark-theme, neutral, 17)};
+    --theme-neutral-variant-10:#{mat.get-theme-color(m3-theme.$dark-theme, neutral-variant, 10)};
+    --theme-neutral-variant-20:#{mat.get-theme-color(m3-theme.$dark-theme, neutral-variant, 20)};
+    --theme-neutral-variant-30:#{mat.get-theme-color(m3-theme.$dark-theme, neutral-variant, 30)};
+    --theme-neutral-variant-90:#{mat.get-theme-color(m3-theme.$dark-theme, neutral-variant, 90)};
 
-// The warn palette is optional (defaults to red).
+  @include mat.list-overrides((
+    active-indicator-color: mat.get-theme-color(m3-theme.$dark-theme, primary-container),
+  ));
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
+  @include mat.dialog-overrides((
+    container-color: mat.get-theme-color(m3-theme.$dark-theme, neutral, 10),
+  ));
 
-$theme: mat.m2-define-dark-theme((
-  color: (
-    primary: $theme-primary,
-    accent: $theme-accent,
-  ),
-  typography: mat.m2-define-typography-config(),
-  density: 0
-));
+  @include mat.button-overrides((
+    container-color: mat.get-theme-color(m3-theme.$dark-theme, primary, 25),
+  ));
+
+  @include mat.sidenav-overrides((
+    content-background-color: mat.get-theme-color(m3-theme.$dark-theme, neutral, 4),
+  ));
+
+  @include mat.card-overrides((
+    container-color: mat.get-theme-color(m3-theme.$dark-theme, neutral, 6),
+  ));
+
+  @include mat.snack-bar-overrides((
+    container-color: mat.get-theme-color(m3-theme.$dark-theme, neutral, 12),
+    supporting-text-color: mat.get-theme-color(m3-theme.$dark-theme, neutral-variant, 90)
+  ));
+
+}
 
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include mat.all-component-themes($theme);
-
+@import 'media';
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%;}
@@ -61,101 +70,87 @@ html{
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  border: none;
 }
 
-  .mat-mdc-dialog-surface{
-    border-radius: 30px !important;
+.mat-mdc-dialog-surface{
+  border-radius: 30px !important;
+}
+
+mat-dialog-actions{
+  padding: 20px 24px !important;
+  justify-content: end !important;
+}
+
+
+
+// Customs \\
+
+mat-stepper{
+  border-radius:12px;
+  border: 1px solid var(--theme-neutral-variant-30);
+  padding: 10px;
+}
+
+mat-icon.primary-color{
+  color: var(--theme-primary) !important;
+}
+
+mat-icon.secondary-color{
+  color: var(--theme-secondary-10) !important;
+}
+
+mat-icon.tertiary-color{
+  color: var(--theme-tertiary-10) !important;
+}
+
+mat-icon.error-color{
+  color: var(--theme-error-10) !important;
+}
+
+mat-icon.warn-color{
+  color: var(--theme-warn) !important;
+}
+
+a{
+  color: currentColor;
+}
+
+.item-data-title{
+  background-color:var(--theme-neutral-4);
+}
+
+.item-data-info{
+  background-color:var(--theme-neutral-12);
+}
+
+// Customs \\
+
+
+
+
+
+// Mixins \\
+
+@mixin component-base-styles{
+  :host{
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
-  mat-dialog-actions{
-    padding: 20px 24px !important;
-    justify-content: end !important;
+  .content{
+    width: 100%;
   }
 
+  .content > h1{
+    margin:20px 0;
+  }
 
-  // .mat-mdc-button .mat-mdc-button-persistent-ripple::before{
-  //   border-radius: 50px !important;
-  // }
+  @media (min-width: 768px) {
+    .content{
+      width: 70%;
+    }
+  }
+}
 
-  // .mat-mdc-button .mdc-button__label{
-  //   color: var(--primary-color) !important;
-  // }
-
-  // .mat-mdc-button:nth-child(2) .mat-mdc-button-persistent-ripple::before{
-  //   background-color: var(--primary-color) !important;
-  //   opacity: 0.2 !important;
-  // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// @use '@angular/material' as mat;
-// @import 'media';
-
-// @include mat.core();
-
-// $dark-primary: mat.m2-define-palette(mat.$m2-red-palette);
-// $dark-accent: mat.m2-define-palette(mat.$m2-blue-palette);
-
-// $dark-theme: mat.m2-define-dark-theme((
-//   color: (
-//     primary: $dark-primary,
-//     accent: $dark-accent,
-//   ),
-//   typography: mat.m2-define-typography-config(),
-//   density: 0
-// ));
-
-// @include mat.all-component-themes($dark-theme);
-
-// html, body { height: 100%; }
-// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --primary-color:#cc0000;}
-
-//   .mat-mdc-dialog-surface{
-//     border-radius: 30px !important;
-//   }
-
-//   mat-dialog-actions{
-//     padding: 20px 24px !important;
-//     justify-content: end !important;
-//   }
-
-//   .mat-mdc-button .mat-mdc-button-persistent-ripple::before{
-//     border-radius: 50px !important;
-//   }
-
-//   .mat-mdc-button .mdc-button__label{
-//     color: var(--primary-color) !important;
-//   }
-
-//   .mat-mdc-button:nth-child(2) .mat-mdc-button-persistent-ripple::before{
-//     background-color: var(--primary-color) !important;
-//     opacity: 0.2 !important;
-//   }
-
+// Mixins \\

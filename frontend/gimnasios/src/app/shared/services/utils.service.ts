@@ -18,7 +18,7 @@ export class UtilsService {
         // TODO: Logout user
       }
 
-      this.snackBar.open(error.message, 'Close', {
+      this.snackBar.open(error.message, 'Cerrar', {
         duration: 2000,
       });
 
@@ -34,6 +34,13 @@ export class UtilsService {
 
   replaceUrlId(url: string, id: number | string){
     return url.replace(`:id`, id.toString())
+  }
+
+
+  showSnackBar(message: string, action?: string, duration?: number){
+    this.snackBar.open(message, action || 'Cerrar', {
+      duration: duration || 2000,
+    });
   }
 
 }

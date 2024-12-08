@@ -23,20 +23,18 @@ export class MainLayoutComponent {
   @Input() projectTitle!: string;
   collapse = signal(true);
   windowWidth = signal(window.innerWidth);
-  isMobile = signal(this.windowWidth() < 800);
-  sidenavWidth = computed(() => this.isMobile() ? this.collapse() ? '0' : '100%' : this.collapse() ? '65px' : '250px');
+  sidenavWidth = computed(() => (this.windowWidth() <= 768) ? this.collapse() ? '0' : '100%' : this.collapse() ? '76px' : '250px');
 
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     this.windowWidth.set(window.innerWidth);
-    this.isMobile.set(this.windowWidth() < 800);
   }
 
 
   updateCollapse(newValue: boolean) {
     this.collapse.set(newValue);
   }
-  
+
 
 }

@@ -1,0 +1,59 @@
+@use '@angular/material' as mat;
+@import '../../../styles.scss';
+@include component-base-styles;
+
+.step-container{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 20px 0;
+}
+
+.step-container > button{
+  align-self: flex-end;
+}
+
+.step-container > section{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step-container > section > button{
+  align-self: center;
+  width: fit-content;
+}
+
+
+.ejercicios-container > div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.ejercicio-item{
+  display: flex;
+  gap: 10px;
+}
+
+mat-expansion-panel .mat-expansion-panel-body{
+  padding: 0 !important;
+}
+
+:host *{
+  @include mat.expansion-overrides((
+    container-background-color: var(--theme-neutral-4),
+  ));
+}
+
+.ejercicio-preview{
+  color: var(--theme-neutral-variant-90);
+}
+
+@media (max-width: 1400px) {
+  .ejercicio-item{
+    flex-direction: column;
+  }
+}
