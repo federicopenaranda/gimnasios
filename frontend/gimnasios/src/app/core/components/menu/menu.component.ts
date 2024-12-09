@@ -37,6 +37,11 @@ export class MenuComponent {
       route: '/home',
     },
     {
+      icon: 'event',
+      label: 'Rutina',
+      route: '/rutina',
+    },
+    {
       icon: 'store',
       label: 'Gimnasio',
       route: '/gestion-gimnasio',

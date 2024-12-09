@@ -5,14 +5,14 @@
       <mat-card appearance="outlined">
         <mat-card-content>
           <span>
-            <p>Nombre: </p>
-            <span>
+            <p class="item-data-title">Nombre: </p>
+            <span class="item-data-info">
               <p>{{userData?.nombre}}</p>
             </span>
           </span>
           <span>
-            <p>Apellido: </p>
-            <span>
+            <p class="item-data-title">Apellido: </p>
+            <span class="item-data-info">
               <p>{{userData?.apellido}}</p>
             </span>
           </span>
@@ -27,6 +27,7 @@
           </a>
         </mat-card-actions>
       </mat-card>
+      <mat-divider></mat-divider>
     }
   </section>
   <button mat-raised-button color="primary" (click)="crearUsuario()" >Crear usuario</button>

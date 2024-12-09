@@ -9,6 +9,7 @@ import { GestionGimnasioService } from '../gestion-gimnasio.service';
 import { ApiResponse } from '../../../shared/models/apiResponse.model';
 import { User, UserCondicion, UserContacto } from '../../../shared/models/user.model';
 import { forkJoin, switchMap } from 'rxjs';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-editar-usuario-dialog',
@@ -19,7 +20,8 @@ import { forkJoin, switchMap } from 'rxjs';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatLabel
+    MatLabel,
+    MatDividerModule
   ],
   templateUrl: './editar-usuario-dialog.component.html',
   styleUrl: './editar-usuario-dialog.component.scss'
@@ -214,7 +216,7 @@ export class EditarUsuarioDialogComponent {
     });
   }
 
-  
+
   isFormGroup(control: AbstractControl): boolean{
     return control instanceof FormGroup;
   }
