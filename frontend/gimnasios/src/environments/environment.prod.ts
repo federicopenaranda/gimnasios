@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  API_URL: 'http://localhost:3000',
-  WEB_URL: 'http://localhost:4200'
+  API_URL: 'endearing-clarity-production.up.railway.app',
+  WEB_URL: 'https://www.kataguy.dev/gimnasios'
 }
