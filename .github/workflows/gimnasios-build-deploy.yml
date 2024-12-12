@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: dist
-          path: ./frontend/gimnasios/dist/gimnasios
+          path: ./frontend/gimnasios/dist/gimnasios/browser
   deploy:
     name: Deploy 🚀
     needs: build
@@ -36,7 +36,7 @@ jobs:
         uses: actions/download-artifact@main
         with: 
           name: dist
-          path: ./frontend/gimnasios/dist/gimnasios
+          path: ./frontend/gimnasios/dist/gimnasios/browser/
 
       - name: Copy FE Files to Hosting (MAIN)
         if: ${{ github.ref_name == 'main' }}
@@ -45,7 +45,7 @@ jobs:
           host: ${{ vars.FTP_SERVER }}
           user: ${{ secrets.QA_FTP_USERNAME }}
           password: ${{ secrets.QA_FTP_PASSWORD }}
-          localDir: './frontend/gimnasios/dist/gimnasios/'
+          localDir: './frontend/gimnasios/dist/gimnasios/browser/'
           remoteDir: './'
 
       - name: Copy .htaccess files to hosting (MAIN)
