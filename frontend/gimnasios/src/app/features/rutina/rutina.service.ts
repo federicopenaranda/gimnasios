@@ -20,7 +20,7 @@ export class RutinaService {
   ) { }
 
   // TODO: replace all hardcoded id's to be dynamic
-  hardcodedGimnasio: number = 60;
+  hardcodedGimnasio: number = 1;
   hardcodedUsuario: number = 1;
 
 

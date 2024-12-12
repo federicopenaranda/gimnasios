@@ -21,7 +21,7 @@ export class GestionGimnasioService {
   ) { }
 
   // TODO: replace all hardcoded id's to be dynamic
-  hardcodedGimnasio: number = 60;
+  hardcodedGimnasio: number = 1;
 
   getGimnasio(): Observable<ApiResponse<Gimnasio>>{
     return this.http.get<ApiResponse<Gimnasio>>(CONSTANTS.get_gimnasio + `/${this.hardcodedGimnasio}`).pipe(

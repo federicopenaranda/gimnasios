@@ -31,12 +31,12 @@ export class CrearEjercicioDialogComponent {
 
 
   ejercicioForm: FormGroup = new FormGroup({
-    fk_id_gimnasio: new FormControl(60, [Validators.required]), // TODO: make it dynamic
+    fk_id_gimnasio: new FormControl(1, [Validators.required]), // TODO: make it dynamic
     nombre: new FormControl('', [Validators.required]),
     grupo_muscular: new FormControl('', []),
     descripcion: new FormControl('', []),
   })
-  
+
 
   onSubmit(){
     if(this.ejercicioForm.invalid){
