@@ -78,7 +78,7 @@ export class RutinaComponent {
   };
 
   userRutina!: Rutina[];
-  gimnasioEjercicios!: Ejercicio[];
+  gimnasioEjercicios: { grupo: string, ejercicios: Ejercicio[] }[] = [];
   formRutina: FormGroup = new FormGroup({
     dia_1: new FormArray([]),
     dia_2: new FormArray([]),
@@ -197,7 +197,18 @@ export class RutinaComponent {
         return;
       }
 
-      this.gimnasioEjercicios = data.data;
+      data.data.forEach( (ejercicio: Ejercicio) => {
+        if ( this.gimnasioEjercicios.length === 0 ) {
+          this.gimnasioEjercicios.push({ grupo: ejercicio.grupo_muscular, ejercicios: [ejercicio] });
+        } else {
+          const dd = this.gimnasioEjercicios.findIndex( (dt) => dt.grupo === ejercicio.grupo_muscular );
+          if (dd !== -1) {
+            this.gimnasioEjercicios[dd].ejercicios.push(ejercicio);
+          } else {
+            this.gimnasioEjercicios.push({ grupo: ejercicio.grupo_muscular, ejercicios: [ejercicio] });
+          }
+        }
+      });
 
       this.rutinaService.getUsuarioRutina().subscribe((data: ApiResponse<Rutina[]>) => {
         this.userRutina = data.data;

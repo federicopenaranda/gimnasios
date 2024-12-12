@@ -1,5 +1,5 @@
 <div class="content">
-  <h1>Gestionar rutina</h1>
+  <h1>Rutina</h1>
   <section>
     <mat-stepper [orientation]="windowWidth() <= 768 ? 'vertical' : 'horizontal'" [linear]="false" #stepper>
     <form [formGroup]="formRutina">
@@ -9,31 +9,34 @@
           <div class="step-container">
 
             <ng-template matStepLabel>{{dia.name | titlecase}}</ng-template>
-            <h1>Rutina del {{dia.name}}</h1>
             <section>
               <mat-accordion class="ejercicios-container" cdkDropList (cdkDropListDropped)="drop($event, dia.number)">
                 @for(rutina of getFormRutinaDia(dia.number).controls; let i = $index; track rutina){
                   <div cdkDrag cdkDragLockAxis="y">
                       <mat-card appareance="outlined" class="ejercicio-preview" *cdkDragPreview>
                         <mat-card-content>
-                          Ejercicio {{i}}
+                          Ejercicio {{i + 1}}
                         </mat-card-content>
                       </mat-card>
                     <mat-icon [style.cursor]="'pointer'" cdkDragHandle>drag_indicator</mat-icon>
                     <mat-expansion-panel [formGroupName]="i">
                       <mat-expansion-panel-header>
                         <mat-panel-title>
-                          Ejercicio {{i}}
+                          Ejercicio {{i + 1}}
                         </mat-panel-title>
                       </mat-expansion-panel-header>
                       <div class="ejercicio-item">
                         <mat-form-field>
                           <mat-label>Ejercicio</mat-label>
                           <mat-select formControlName="fk_id_ejercicio" color="primary">
-                            @for(ejercicio of gimnasioEjercicios; track $index){
-                              <mat-option [value]="+ejercicio.id">
-                                {{ejercicio.nombre}}
-                              </mat-option>
+                            @for(grupo of gimnasioEjercicios; track $index) {
+                              <mat-optgroup [label]="grupo.grupo">
+                                @for (ejercicio of grupo.ejercicios; track ejercicio) {
+                                  <mat-option [value]="+ejercicio.id">
+                                    {{ejercicio.nombre}}
+                                  </mat-option>
+                                }
+                              </mat-optgroup>
                             }
                           </mat-select>
                         </mat-form-field>

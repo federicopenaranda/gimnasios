@@ -31,7 +31,7 @@ export class GimnasioService {
     }
 
     async getAll(): Promise<Gimnasio[]> {
-        return await this.gimnasioRepository.find();
+        return await this.gimnasioRepository.find({ order: { id: { direction: 'asc' } } });
     }
 
     async create(dto: CreateGimnasioDto): Promise<Gimnasio> {

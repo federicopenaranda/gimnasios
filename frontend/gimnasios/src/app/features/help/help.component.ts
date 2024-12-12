@@ -23,24 +23,24 @@ export class HelpComponent {
 
   helpItems = signal<HelpItem[]>([
     {
-      title: 'Lorem ipsum dolor sit amet',
+      title: '¿Cómo Gestionar la Rutina?',
       description: '',
-      content: '1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      content: 'Contenido de ayuda todavía en proceso.'
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
+      title: '¿Cómo registrar un ejercicio?',
       description: '',
-      content: '1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      content: 'Contenido de ayuda todavía en proceso.'
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
+      title: '¿Cómo registrar un avance?',
       description: '',
-      content: '1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      content: 'Contenido de ayuda todavía en proceso.'
     },
     {
-      title: 'Lorem ipsum dolor sit amet',
+      title: '¿Cómo ver un reporte de mi avance?',
       description: '',
-      content: '1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      content: 'Contenido de ayuda todavía en proceso.'
     },
   ]);
 

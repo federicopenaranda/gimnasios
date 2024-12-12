@@ -48,7 +48,7 @@ export class MenuComponent {
       subItems: [
         {
           icon: 'settings',
-          label: 'Datos del gimnasio',
+          label: 'Datos',
           route: '/datos-gimnasio',
         },
         {
@@ -60,6 +60,11 @@ export class MenuComponent {
           icon: 'manage_accounts',
           label: 'Usuarios',
           route: '/gestion-usuarios',
+        },
+        {
+          icon: 'insert_chart',
+          label: 'Reportes',
+          route: '/reportes',
         },
       ]
     }
