@@ -1,0 +1,59 @@
+name: Build and Deploy Frontend apps to Hostgator Hosting
+
+on:
+  push:
+    branches: [main]
+
+defaults:
+  run:
+    working-directory: ./frontend/gimnasios
+
+jobs:
+  build:
+    name: Build ⛏
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Install dependencies
+        run: npm install
+      - name: Build dependencies (main)
+        if: ${{ github.ref_name == 'main' }}
+        run: npx -p @angular/cli ng build --base-href /gimnasios/ -c production
+      - name: Archive production artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: dist
+          path: ./frontend/gimnasios/dist/gimnasios
+  deploy:
+    name: Deploy 🚀
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Download artifact
+        uses: actions/download-artifact@main
+        with: 
+          name: dist
+          path: ./frontend/gimnasios/dist/gimnasios
+
+      - name: Copy FE Files to Hosting (MAIN)
+        if: ${{ github.ref_name == 'main' }}
+        uses: sebastianpopp/ftp-action@releases/v2
+        with:
+          host: ${{ vars.FTP_SERVER }}
+          user: ${{ secrets.QA_FTP_USERNAME }}
+          password: ${{ secrets.QA_FTP_PASSWORD }}
+          localDir: './frontend/gimnasios/dist/gimnasios/'
+          remoteDir: './'
+
+      - name: Copy .htaccess files to hosting (MAIN)
+        if: ${{ github.ref_name == 'main' }}
+        uses: sebastianpopp/ftp-action@releases/v2
+        with:
+          host: ${{ vars.FTP_SERVER }}
+          user: ${{ secrets.QA_FTP_USERNAME }}
+          password: ${{ secrets.QA_FTP_PASSWORD }}
+          localDir: './frontend/gimnasios/htaccess/qa/'
+          remoteDir: './'

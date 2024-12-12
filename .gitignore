@@ -43,4 +43,4 @@ backend/gimnasios/uploads
 backend/gimnasios/reportes
 frontend/gimnasios/dist
 
-**/*.env
+backend/gimnasios/env
