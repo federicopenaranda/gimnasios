@@ -33,7 +33,7 @@ export class MenuComponent {
   menuItems = signal<MenuItem[]>([
     {
       icon: 'home',
-      label: 'Home',
+      label: 'Inicio',
       route: '/home',
     },
     {
