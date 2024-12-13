@@ -203,6 +203,9 @@ export class UsuarioService {
             fechaOk = fecha;
         }
 
+        console.log(fechaOk);
+        console.log(id);
+
         return await this.dataSource.query(
             `SELECT e.*, r.*, re2.repeticiones as re_repeticiones, re2.peso as re_peso
                 FROM 
