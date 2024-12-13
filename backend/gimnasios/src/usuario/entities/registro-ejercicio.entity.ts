@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, Unique } from 'typeorm';
 
 @Entity('registro_ejercicios')
+@Unique(['fk_id_ejercicio', 'fecha', 'serie'])
 export class RegistroEjercicio {
   @PrimaryGeneratedColumn('increment', { type: 'bigint' })
   id: number;

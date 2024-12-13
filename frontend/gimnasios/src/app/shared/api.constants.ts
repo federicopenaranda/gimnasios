@@ -8,6 +8,7 @@ export const CONSTANTS = {
   get_gimnasio_usuarios: `${API_URL}/gimnasio/:id/usuarios`,
   get_gimnasio_ejercicios: `${API_URL}/gimnasio/:id/ejercicios`,
   get_usuario_rutina: `${API_URL}/usuario/:id/rutina`,
+  get_usuario_rutina_dia: `${API_URL}/usuario/:id/rutina/dia/`,
   get_usuario: `${API_URL}/usuario/`,
   editar_gimnasio: `${API_URL}/gimnasio`,
   editar_usuario: `${API_URL}/usuario/`,
@@ -20,6 +21,7 @@ export const CONSTANTS = {
   crear_usuario: `${API_URL}/usuario`,
   crear_usuario_gimnasio: `${API_URL}/gimnasio/registroUsuario`,
   crear_rutina: `${API_URL}/usuario/:id/rutina`,
+  crear_usuario_registro: `${API_URL}/usuario/:id/registro`,
   eliminar_ejercicio: `${API_URL}/ejercicio`,
   eliminar_rutina: `${API_URL}/usuario/:id/rutina`,
 
