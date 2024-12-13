@@ -59,6 +59,23 @@ html {
 @import 'media';
 /* You can add global styles to this file, and also import other style files */
 
+
+@media (max-width:768px) {
+  mat-stepper{
+    padding: 15px !important;
+  }
+  .mat-vertical-stepper-header{
+    padding-inline:0 !important;
+  }
+  .mat-vertical-content-container{
+    margin-left: 10px !important;
+  }
+
+  .mat-vertical-content{
+    padding: 0 10px 10px 10px !important;
+  }
+}
+
 html, body { height: 100%;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --primary-color:#cc0000;}
 html{

@@ -1,1 +1,50 @@
-<p>home works!</p>
+<div class="content">
+  <h1>Registrar rutina</h1>
+  <section>
+    <mat-stepper [orientation]="windowWidth() <= 768 ? 'vertical' : 'horizontal'" [linear]="false" #stepper>
+      @for(ejercicio of userEjercicios; track $index){
+        <form [formGroup]="userRegistros">
+          <mat-step [formArrayName]="'id_registro_'+ejercicio.id">
+            <div class="step-container">
+              <ng-template matStepLabel>{{ejercicio.nombre}}</ng-template>
+              <mat-accordion>
+                @for (serie of getUserRegistrosEjercicio(ejercicio.id).controls;let i = $index; track $index) {
+                  <mat-expansion-panel [formGroupName]="i">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        Serie {{i+1}}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="controls-container">
+                      <mat-form-field>
+                        <mat-label>Repeticiones</mat-label>
+                        <input type="number" formControlName="repeticiones" matInput required>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <mat-label>Peso (kg)</mat-label>
+                        <input type="number" formControlName="peso" matInput required>
+                      </mat-form-field>
+                    </div>
+                    <!-- <mat-icon class="warn-color" [style.cursor]="'pointer'" (click)="eliminarSerie(ejercicio.id, i)">remove_circle_outline</mat-icon> -->
+                  </mat-expansion-panel>
+                }
+              </mat-accordion>
+              <button mat-raised-button (click)="addSerie(ejercicio.id)">Agregar serie</button>
+              <div class="mat-stepper-actions">
+                @if($index > 0 ){
+                  <button mat-stroked-button matStepperPrevious>Anterior</button>
+                }
+                @if($index < userEjercicios.length - 1){
+                  <button mat-raised-button matStepperNext>Siguiente</button>
+                }
+                @if($index == userEjercicios.length - 1){
+                  <button mat-raised-button (click)="guardarRegistros()">Finalizar rutina</button>
+                }
+              </div>
+            </div>
+          </mat-step>
+        </form>
+      }
+    </mat-stepper>
+  </section>
+</div>
