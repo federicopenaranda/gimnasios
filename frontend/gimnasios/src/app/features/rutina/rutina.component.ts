@@ -132,7 +132,7 @@ export class RutinaComponent {
     this.getFormRutinaDia(diaNum).removeAt(i);
   }
 
-
+  
   guardarRutinaDia(diaNum: number){
     if(this.getFormRutinaDia(diaNum).invalid){
       return;
