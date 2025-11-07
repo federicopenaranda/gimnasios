@@ -16,21 +16,20 @@ import { CrearUsuarioDialogComponent } from '../crear-usuario-dialog/crear-usuar
 import { MatDivider } from '@angular/material/divider';
 
 @Component({
-  selector: 'app-gestion-usuarios',
-  standalone: true,
-  imports: [
-    MatTableModule,
-    MatIconModule,
-    MatSlideToggleModule,
-    MatButtonModule,
-    RouterLink,
-    MatTooltipModule,
-    MatCardModule,
-    FormsModule,
-    MatDivider
-  ],
-  templateUrl: './gestion-usuarios.component.html',
-  styleUrl: './gestion-usuarios.component.scss'
+    selector: 'app-gestion-usuarios',
+    imports: [
+        MatTableModule,
+        MatIconModule,
+        MatSlideToggleModule,
+        MatButtonModule,
+        RouterLink,
+        MatTooltipModule,
+        MatCardModule,
+        FormsModule,
+        MatDivider
+    ],
+    templateUrl: './gestion-usuarios.component.html',
+    styleUrl: './gestion-usuarios.component.scss'
 })
 export class GestionUsuariosComponent {
 
@@ -64,7 +63,7 @@ export class GestionUsuariosComponent {
     })
 
     dialog.afterClosed().subscribe((result: any) => {
-      if(result.dialogResult !== 200){
+      if(result && result.dialogResult !== 200){
         return;
       }
       this.updateUsuariosData()
@@ -92,7 +91,7 @@ export class GestionUsuariosComponent {
     })
 
     dialog.afterClosed().subscribe((result: any) => {
-      if(result.dialogResult !== 200){
+      if(result && result.dialogResult !== 200){
         return;
       }
       this.updateUsuariosData()

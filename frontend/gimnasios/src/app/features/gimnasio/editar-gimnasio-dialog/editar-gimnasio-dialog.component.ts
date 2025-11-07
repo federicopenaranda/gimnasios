@@ -10,17 +10,16 @@ import { GestionGimnasioService } from '../gestion-gimnasio.service';
 import { ApiResponse } from '../../../shared/models/apiResponse.model';
 
 @Component({
-  selector: 'app-editar-gimnasio-dialog',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule
-  ],
-  templateUrl: './editar-gimnasio-dialog.component.html',
-  styleUrl: './editar-gimnasio-dialog.component.scss'
+    selector: 'app-editar-gimnasio-dialog',
+    imports: [
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule
+    ],
+    templateUrl: './editar-gimnasio-dialog.component.html',
+    styleUrl: './editar-gimnasio-dialog.component.scss'
 })
 export class EditarGimnasioDialogComponent {
 

@@ -11,18 +11,17 @@ import { User } from '../../../shared/models/user.model';
 import { usuarioGimnasio } from '../../../shared/models/usuario-gimnasio.model';
 
 @Component({
-  selector: 'app-crear-usuario-dialog',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatLabel
-  ],
-  templateUrl: './crear-usuario-dialog.component.html',
-  styleUrl: './crear-usuario-dialog.component.scss'
+    selector: 'app-crear-usuario-dialog',
+    imports: [
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        MatLabel
+    ],
+    templateUrl: './crear-usuario-dialog.component.html',
+    styleUrl: './crear-usuario-dialog.component.scss'
 })
 export class CrearUsuarioDialogComponent {
 

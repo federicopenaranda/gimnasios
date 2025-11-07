@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
-@import '../../../../styles.scss';
-@include component-base-styles;
+@forward '../../../../styles.scss';
+// @include component-base-styles;
 
 mat-card{
   display: flex;

@@ -1,5 +1,5 @@
-@import '../../../../styles.scss';
-@include component-base-styles;
+@forward '../../../../styles.scss';
+// @include component-base-styles;
 
 
 .actions{

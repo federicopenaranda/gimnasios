@@ -10,14 +10,13 @@ export type HelpItem = {
 }
 
 @Component({
-  selector: 'app-help',
-  standalone: true,
-  imports: [
-    MatExpansionModule,
-    MatDividerModule
-  ],
-  templateUrl: './help.component.html',
-  styleUrl: './help.component.scss'
+    selector: 'app-help',
+    imports: [
+        MatExpansionModule,
+        MatDividerModule
+    ],
+    templateUrl: './help.component.html',
+    styleUrl: './help.component.scss'
 })
 export class HelpComponent {
 

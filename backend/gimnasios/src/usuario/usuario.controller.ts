@@ -110,7 +110,7 @@ export class UsuarioController {
 
     // Devuelve la rutina que corresponde al día actual (si no se pasa una fecha)
     // o devuelve la rutina del día de la fecha que se envía en el parámetro :fecha
-    @Get(':id/rutina/dia/:fecha?')
+    @Get(':id/rutina/dia/{:fecha}')
 	async getUsuarioRutinaDia(
         @Param('id') id: number,
         @Param('fecha') fecha?: string

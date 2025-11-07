@@ -8,18 +8,17 @@ import { MatDialog } from '@angular/material/dialog';
 import { SuggestionComponent } from '../../../features/suggestion/suggestion.component';
 
 @Component({
-  selector: 'app-toolbar',
-  standalone: true,
-  imports: [
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    RouterLink,
-    RouterModule,
-    MatListModule
-  ],
-  templateUrl: './toolbar.component.html',
-  styleUrl: './toolbar.component.scss'
+    selector: 'app-toolbar',
+    imports: [
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        RouterLink,
+        RouterModule,
+        MatListModule
+    ],
+    templateUrl: './toolbar.component.html',
+    styleUrl: './toolbar.component.scss'
 })
 export class ToolbarComponent {
 

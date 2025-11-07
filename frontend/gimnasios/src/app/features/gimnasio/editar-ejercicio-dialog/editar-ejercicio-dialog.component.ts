@@ -10,17 +10,16 @@ import { Ejercicio } from '../../../shared/models/ejercicio.model';
 import { ApiResponse } from '../../../shared/models/apiResponse.model';
 
 @Component({
-  selector: 'app-editar-ejercicio-dialog',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule
-  ],
-  templateUrl: './editar-ejercicio-dialog.component.html',
-  styleUrl: './editar-ejercicio-dialog.component.scss'
+    selector: 'app-editar-ejercicio-dialog',
+    imports: [
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule
+    ],
+    templateUrl: './editar-ejercicio-dialog.component.html',
+    styleUrl: './editar-ejercicio-dialog.component.scss'
 })
 export class EditarEjercicioDialogComponent {
 

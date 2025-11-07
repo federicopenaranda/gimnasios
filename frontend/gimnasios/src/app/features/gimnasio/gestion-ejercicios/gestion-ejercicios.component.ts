@@ -17,20 +17,19 @@ import { CrearEjercicioDialogComponent } from '../crear-ejercicio-dialog/crear-e
 import { ConfirmDialogComponent } from '../../../shared/confirm-dialog/confirm-dialog.component';
 
 @Component({
-  selector: 'app-gestion-ejercicios',
-  standalone: true,
-  imports: [
-    MatTableModule,
-    MatIconModule,
-    MatSlideToggleModule,
-    MatButtonModule,
-    MatTooltipModule,
-    MatCardModule,
-    FormsModule,
-    MatDivider
-  ],
-  templateUrl: './gestion-ejercicios.component.html',
-  styleUrl: './gestion-ejercicios.component.scss'
+    selector: 'app-gestion-ejercicios',
+    imports: [
+        MatTableModule,
+        MatIconModule,
+        MatSlideToggleModule,
+        MatButtonModule,
+        MatTooltipModule,
+        MatCardModule,
+        FormsModule,
+        MatDivider
+    ],
+    templateUrl: './gestion-ejercicios.component.html',
+    styleUrl: './gestion-ejercicios.component.scss'
 })
 export class GestionEjerciciosComponent {
 
@@ -70,7 +69,7 @@ export class GestionEjerciciosComponent {
     })
 
     dialog.afterClosed().subscribe((result: any) => {
-      if(result.dialogResult !== 200){
+      if(result && result.dialogResult !== 200){
         return;
       }
       this.updateEjerciciosData()
@@ -85,7 +84,7 @@ export class GestionEjerciciosComponent {
     })
 
     dialog.afterClosed().subscribe((result: any) => {
-      if(result.dialogResult !== 200){
+      if(result && result.dialogResult !== 200){
         return;
       }
       this.updateEjerciciosData()

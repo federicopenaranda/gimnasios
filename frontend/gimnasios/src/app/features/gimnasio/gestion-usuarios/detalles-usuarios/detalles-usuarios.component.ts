@@ -12,19 +12,18 @@ import { ApiResponse } from '../../../../shared/models/apiResponse.model';
 import { User } from '../../../../shared/models/user.model';
 
 @Component({
-  selector: 'app-detalles-usuarios',
-  standalone: true,
-  imports: [
-    MatInputModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    ClipboardModule,
-    MatTooltipModule
-  ],
-  templateUrl: './detalles-usuarios.component.html',
-  styleUrl: './detalles-usuarios.component.scss'
+    selector: 'app-detalles-usuarios',
+    imports: [
+        MatInputModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        ClipboardModule,
+        MatTooltipModule
+    ],
+    templateUrl: './detalles-usuarios.component.html',
+    styleUrl: './detalles-usuarios.component.scss'
 })
 export class DetallesUsuariosComponent {
 

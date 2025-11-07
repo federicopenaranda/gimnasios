@@ -13,19 +13,18 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
-  selector: 'app-datos-gimnasio',
-  standalone: true,
-  imports: [
-    MatInputModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    ClipboardModule,
-    MatTooltipModule
-  ],
-  templateUrl: './datos-gimnasio.component.html',
-  styleUrl: './datos-gimnasio.component.scss'
+    selector: 'app-datos-gimnasio',
+    imports: [
+        MatInputModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        ClipboardModule,
+        MatTooltipModule
+    ],
+    templateUrl: './datos-gimnasio.component.html',
+    styleUrl: './datos-gimnasio.component.scss'
 })
 export class DatosGimnasioComponent {
 
@@ -35,7 +34,7 @@ export class DatosGimnasioComponent {
   ){}
 
 
-  gimnasioData!: Gimnasio
+  gimnasioData: Gimnasio | undefined
   windowWidth = signal(window.innerWidth);
 
 
@@ -58,7 +57,7 @@ export class DatosGimnasioComponent {
     })
 
     dialog.afterClosed().subscribe((result: any) => {
-      if(result.dialogResult !== 200){
+      if(result && result.dialogResult !== 200){
         return;
       }
 

@@ -12,19 +12,18 @@ import { forkJoin, switchMap } from 'rxjs';
 import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
-  selector: 'app-editar-usuario-dialog',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatLabel,
-    MatDividerModule
-  ],
-  templateUrl: './editar-usuario-dialog.component.html',
-  styleUrl: './editar-usuario-dialog.component.scss'
+    selector: 'app-editar-usuario-dialog',
+    imports: [
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        MatLabel,
+        MatDividerModule
+    ],
+    templateUrl: './editar-usuario-dialog.component.html',
+    styleUrl: './editar-usuario-dialog.component.scss'
 })
 export class EditarUsuarioDialogComponent {
 

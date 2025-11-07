@@ -23,25 +23,24 @@ import { forkJoin, Observable } from 'rxjs';
 
 
 @Component({
-  selector: 'app-rutina',
-  standalone: true,
-  imports: [
-    MatCardModule,
-    MatStepperModule,
-    MatButtonModule,
-    MatDividerModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatLabel,
-    MatInputModule,
-    MatSelectModule,
-    CdkDropList, CdkDrag, CdkDragPreview, CdkDragHandle,
-    MatIconModule,
-    MatExpansionModule,
-    TitleCasePipe
-  ],
-  templateUrl: './rutina.component.html',
-  styleUrl: './rutina.component.scss'
+    selector: 'app-rutina',
+    imports: [
+        MatCardModule,
+        MatStepperModule,
+        MatButtonModule,
+        MatDividerModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatLabel,
+        MatInputModule,
+        MatSelectModule,
+        CdkDropList, CdkDrag, CdkDragPreview, CdkDragHandle,
+        MatIconModule,
+        MatExpansionModule,
+        TitleCasePipe
+    ],
+    templateUrl: './rutina.component.html',
+    styleUrl: './rutina.component.scss'
 })
 export class RutinaComponent {
 

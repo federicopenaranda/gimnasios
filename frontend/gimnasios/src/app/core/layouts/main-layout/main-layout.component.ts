@@ -6,17 +6,16 @@ import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
 import { MenuComponent } from '../../components/menu/menu.component';
 
 @Component({
-  selector: 'app-main-layout',
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    MatSidenavModule,
-    MenuComponent,
-    ToolbarComponent
-  ],
-  templateUrl: './main-layout.component.html',
-  styleUrl: './main-layout.component.scss'
+    selector: 'app-main-layout',
+    imports: [
+        CommonModule,
+        RouterOutlet,
+        MatSidenavModule,
+        MenuComponent,
+        ToolbarComponent
+    ],
+    templateUrl: './main-layout.component.html',
+    styleUrl: './main-layout.component.scss'
 })
 export class MainLayoutComponent {
 

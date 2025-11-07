@@ -1,7 +1,8 @@
 @use '@angular/material' as mat;
 @use '../src/app/styles/m3-theme.scss';
 
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
 html {
   @include mat.all-component-themes(m3-theme.$dark-theme);
@@ -37,7 +38,7 @@ html {
   ));
 
   @include mat.button-overrides((
-    container-color: mat.get-theme-color(m3-theme.$dark-theme, primary, 25),
+    filled-container-color: mat.get-theme-color(m3-theme.$dark-theme, primary, 25),
   ));
 
   @include mat.sidenav-overrides((
@@ -45,7 +46,7 @@ html {
   ));
 
   @include mat.card-overrides((
-    container-color: mat.get-theme-color(m3-theme.$dark-theme, neutral, 6),
+    elevated-container-color: mat.get-theme-color(m3-theme.$dark-theme, neutral, 6),
   ));
 
   @include mat.snack-bar-overrides((
@@ -56,7 +57,7 @@ html {
 }
 
 
-@import 'media';
+// @import 'media';
 /* You can add global styles to this file, and also import other style files */
 
 

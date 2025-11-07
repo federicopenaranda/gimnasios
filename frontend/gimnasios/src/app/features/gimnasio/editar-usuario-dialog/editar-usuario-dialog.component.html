@@ -60,7 +60,7 @@
         <h1>Contactos del usuario</h1>
         <form [formGroup]="usuarioContactoForm" >
           <ng-container formArrayName="usuario_contacto_edit">
-            @for(contacto of usuarioContactoEdit?.controls; let i = $index; track $index ){
+            @for(contacto of usuarioContactoEdit.controls; let i = $index; track $index ){
               <div [formGroupName]="i" >
                 <div>
                   <mat-form-field>
@@ -83,7 +83,7 @@
 
 
           <ng-container formArrayName="usuario_contacto_add">
-            @for(contacto of usuarioContactoAdd?.controls; let i = $index; track $index ){
+            @for(contacto of usuarioContactoAdd.controls; let i = $index; track $index ){
               <div [formGroupName]="i" >
                 <div>
                   <mat-form-field>
@@ -112,7 +112,7 @@
         <h1>Condiciones del usuario</h1>
         <form [formGroup]="usuarioCondicionForm" >
           <ng-container formArrayName="usuario_condicion_edit">
-            @for(condicion of usuarioCondicionEdit?.controls; let i = $index; track $index ){
+            @for(condicion of usuarioCondicionEdit.controls; let i = $index; track $index ){
               <div [formGroupName]="i" >
                 <div>
                   <mat-form-field>
@@ -134,7 +134,7 @@
 
 
           <ng-container formArrayName="usuario_condicion_add">
-            @for(condicion of usuarioCondicionAdd?.controls; let i = $index; track $index ){
+            @for(condicion of usuarioCondicionAdd.controls; let i = $index; track $index ){
               <div [formGroupName]="i" >
                 <div>
                   <mat-form-field>

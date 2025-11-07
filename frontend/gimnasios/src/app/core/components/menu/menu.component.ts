@@ -12,12 +12,12 @@ export type MenuItem = {
 }
 
 @Component({
-  selector: 'app-menu',
   standalone: true,
+  selector: 'app-menu',
   imports: [
-    MatListModule,
-    MatDivider,
-    MenuItemComponent
+      MatListModule,
+      MatDivider,
+      MenuItemComponent
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'

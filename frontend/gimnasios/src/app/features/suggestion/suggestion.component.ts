@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {
   MatDialogActions,
-  MatDialogClose,
   MatDialogContent,
   MatDialogRef,
   MatDialogTitle,
@@ -15,19 +14,17 @@ import { SuggestionFormService } from './suggestion-form.service';
 
 
 @Component({
-  selector: 'app-suggestion',
-  standalone: true,
-  imports: [
-    MatInputModule,
-    MatDialogTitle,
-    MatDialogContent,
-    MatDialogActions,
-    MatDialogClose,
-    MatButtonModule,
-    ReactiveFormsModule
-  ],
-  templateUrl: './suggestion.component.html',
-  styleUrl: './suggestion.component.scss'
+    selector: 'app-suggestion',
+    imports: [
+        MatInputModule,
+        MatDialogTitle,
+        MatDialogContent,
+        MatDialogActions,
+        MatButtonModule,
+        ReactiveFormsModule
+    ],
+    templateUrl: './suggestion.component.html',
+    styleUrl: './suggestion.component.scss'
 })
 export class SuggestionComponent {
        suggestionSent = false;

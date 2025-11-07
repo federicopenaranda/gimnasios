@@ -1,4 +1,3 @@
-import { TitleCasePipe } from '@angular/common';
 import { Component, HostListener, signal } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,25 +17,23 @@ import { Registro } from '../../shared/models/registro.model';
 import { UtilsService } from '../../shared/services/utils.service';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    MatCardModule,
-    MatStepperModule,
-    MatButtonModule,
-    MatDividerModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatLabel,
-    MatInputModule,
-    MatSelectModule,
-    MatIconModule,
-    MatExpansionModule,
-    TitleCasePipe,
-    MatExpansionModule
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+    selector: 'app-home',
+    imports: [
+        MatCardModule,
+        MatStepperModule,
+        MatButtonModule,
+        MatDividerModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatLabel,
+        MatInputModule,
+        MatSelectModule,
+        MatIconModule,
+        MatExpansionModule,
+        MatExpansionModule
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {
 

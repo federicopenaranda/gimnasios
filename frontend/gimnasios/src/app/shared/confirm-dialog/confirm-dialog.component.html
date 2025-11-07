@@ -1,10 +1,10 @@
-<h2 mat-dialog-title>{{dialogData?.title}}</h2>
-@if(dialogData?.message){
+<h2 mat-dialog-title>{{dialogData.title}}</h2>
+@if(dialogData.message){
   <mat-dialog-content>
-    <p>{{dialogData?.message}}</p>
+    <p>{{dialogData.message}}</p>
   </mat-dialog-content>
 }
 <mat-dialog-actions>
   <button mat-button (click)="onCancel()">Cancelar</button>
-  <button mat-flat-button cdkFocusInitial color="primary" (click)="onConfirm()">{{dialogData?.action}}</button>
+  <button mat-flat-button cdkFocusInitial color="primary" (click)="onConfirm()">{{dialogData.action}}</button>
 </mat-dialog-actions>
