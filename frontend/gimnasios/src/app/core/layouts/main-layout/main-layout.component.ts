@@ -1,5 +1,5 @@
 import { Component, computed, HostListener, Input, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
@@ -8,12 +8,11 @@ import { MenuComponent } from '../../components/menu/menu.component';
 @Component({
     selector: 'app-main-layout',
     imports: [
-        CommonModule,
-        RouterOutlet,
-        MatSidenavModule,
-        MenuComponent,
-        ToolbarComponent
-    ],
+    RouterOutlet,
+    MatSidenavModule,
+    MenuComponent,
+    ToolbarComponent
+],
     templateUrl: './main-layout.component.html',
     styleUrl: './main-layout.component.scss'
 })

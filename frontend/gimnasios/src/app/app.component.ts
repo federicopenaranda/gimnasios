@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.component';
 import { GestionGimnasioService } from './features/gimnasio/gestion-gimnasio.service';
@@ -7,7 +7,7 @@ import { ApiResponse } from './shared/models/apiResponse.model';
 
 @Component({
     selector: 'app-root',
-    imports: [CommonModule, MainLayoutComponent],
+    imports: [MainLayoutComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
