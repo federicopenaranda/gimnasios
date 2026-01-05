@@ -1,7 +1,6 @@
 @use '@angular/material' as mat;
-@forward '../../../styles.scss';
-// @include component-base-styles;
-
+@use 'styles.scss' as styles;
+@include styles.component-base-styles;
 
 :host *{
   @include mat.expansion-overrides((

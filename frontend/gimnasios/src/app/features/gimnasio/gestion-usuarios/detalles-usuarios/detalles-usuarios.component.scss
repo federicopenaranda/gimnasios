@@ -1,19 +1,16 @@
-
-:host{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
+@use '@angular/material' as mat;
+@use 'styles.scss' as styles;
+@include styles.component-base-styles;
 
 .content{
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.content > mat-card > h1{
-  margin-top:10px;
+.content h1{
+  margin-top: var(--px-separator-20);
+  margin-inline: var(--px-separator-20);
 }
 
 mat-card{
@@ -66,13 +63,8 @@ mat-card > button{
   align-self: end;
 }
 
-@media (min-width: 768px) {
-  .content{
-    width: 70%;
-  }
-}
 
-@media (max-width: 768px){
+@media (max-width: 1100px){
 
   mat-card-content{
     gap: 20px;

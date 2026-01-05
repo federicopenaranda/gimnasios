@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { GestionGimnasioService } from '../gestion-gimnasio.service';
 import { Ejercicio } from '../../../shared/models/ejercicio.model';
 import { ApiResponse } from '../../../shared/models/apiResponse.model';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
     selector: 'app-editar-ejercicio-dialog',
@@ -16,7 +17,8 @@ import { ApiResponse } from '../../../shared/models/apiResponse.model';
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatCardModule
     ],
     templateUrl: './editar-ejercicio-dialog.component.html',
     styleUrl: './editar-ejercicio-dialog.component.scss'

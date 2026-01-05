@@ -9,6 +9,7 @@ import { GestionGimnasioService } from '../gestion-gimnasio.service';
 import { ApiResponse } from '../../../shared/models/apiResponse.model';
 import { User } from '../../../shared/models/user.model';
 import { usuarioGimnasio } from '../../../shared/models/usuario-gimnasio.model';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
     selector: 'app-crear-usuario-dialog',
@@ -18,7 +19,8 @@ import { usuarioGimnasio } from '../../../shared/models/usuario-gimnasio.model';
         MatInputModule,
         MatButtonModule,
         MatIconModule,
-        MatLabel
+        MatLabel,
+        MatCardModule
     ],
     templateUrl: './crear-usuario-dialog.component.html',
     styleUrl: './crear-usuario-dialog.component.scss'

@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { GestionGimnasioService } from '../gestion-gimnasio.service';
 import { Ejercicio } from '../../../shared/models/ejercicio.model';
 import { ApiResponse } from '../../../shared/models/apiResponse.model';
+import { MatCardModule } from '@angular/material/card';
+
 
 @Component({
     selector: 'app-crear-ejercicio-dialog',
@@ -16,7 +18,8 @@ import { ApiResponse } from '../../../shared/models/apiResponse.model';
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatCardModule
     ],
     templateUrl: './crear-ejercicio-dialog.component.html',
     styleUrl: './crear-ejercicio-dialog.component.scss'

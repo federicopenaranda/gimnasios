@@ -10,6 +10,8 @@ import { ApiResponse } from '../../../shared/models/apiResponse.model';
 import { User, UserCondicion, UserContacto } from '../../../shared/models/user.model';
 import { forkJoin, switchMap } from 'rxjs';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+
 
 @Component({
     selector: 'app-editar-usuario-dialog',
@@ -20,7 +22,8 @@ import { MatDividerModule } from '@angular/material/divider';
         MatButtonModule,
         MatIconModule,
         MatLabel,
-        MatDividerModule
+        MatDividerModule,
+        MatCardModule
     ],
     templateUrl: './editar-usuario-dialog.component.html',
     styleUrl: './editar-usuario-dialog.component.scss'

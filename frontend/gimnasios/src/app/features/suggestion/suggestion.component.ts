@@ -11,7 +11,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { SuggestionService } from './suggestion.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SuggestionFormService } from './suggestion-form.service';
-
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
     selector: 'app-suggestion',
@@ -21,7 +21,8 @@ import { SuggestionFormService } from './suggestion-form.service';
         MatDialogContent,
         MatDialogActions,
         MatButtonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatCardModule
     ],
     templateUrl: './suggestion.component.html',
     styleUrl: './suggestion.component.scss'
