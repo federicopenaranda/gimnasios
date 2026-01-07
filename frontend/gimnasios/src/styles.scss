@@ -15,7 +15,10 @@ html {
     --theme-warn: #ae1c1c;
     --theme-primary-10:#{mat.get-theme-color(m3-theme.$dark-theme, primary, 10)};
     --theme-primary-20:#{mat.get-theme-color(m3-theme.$dark-theme, primary, 20)};
+    --theme-primary-25:#{mat.get-theme-color(m3-theme.$dark-theme, primary, 25)};
     --theme-primary-30:#{mat.get-theme-color(m3-theme.$dark-theme, primary, 30)};
+    --theme-primary-90:#{mat.get-theme-color(m3-theme.$dark-theme, primary, 90)};
+    --theme-primary-95:#{mat.get-theme-color(m3-theme.$dark-theme, primary, 95)};
     --theme-secondary-10:#{mat.get-theme-color(m3-theme.$dark-theme, secondary, 10)};
     --theme-tertiary-10:#{mat.get-theme-color(m3-theme.$dark-theme, tertiary, 10)};
     --theme-error-10:#{mat.get-theme-color(m3-theme.$dark-theme, error, 10)};
@@ -29,29 +32,33 @@ html {
     --theme-neutral-variant-30:#{mat.get-theme-color(m3-theme.$dark-theme, neutral-variant, 30)};
     --theme-neutral-variant-90:#{mat.get-theme-color(m3-theme.$dark-theme, neutral-variant, 90)};
 
+    --px-separator-40: 40px;
+    --px-separator-20: 20px;
+
   @include mat.list-overrides((
     active-indicator-color: mat.get-theme-color(m3-theme.$dark-theme, primary-container),
   ));
 
   @include mat.dialog-overrides((
-    container-color: mat.get-theme-color(m3-theme.$dark-theme, neutral, 10),
+    container-color: var(--theme-neutral-10),
   ));
 
   @include mat.button-overrides((
-    filled-container-color: mat.get-theme-color(m3-theme.$dark-theme, primary, 25),
+    filled-container-color: var(--theme-primary-25),
+    filled-label-text-color: var(--theme-primary-90)
   ));
 
   @include mat.sidenav-overrides((
-    content-background-color: mat.get-theme-color(m3-theme.$dark-theme, neutral, 4),
+    content-background-color: var(--theme-neutral-4),
   ));
 
   @include mat.card-overrides((
-    elevated-container-color: mat.get-theme-color(m3-theme.$dark-theme, neutral, 6),
+    elevated-container-color: var(--theme-neutral-6),
   ));
 
   @include mat.snack-bar-overrides((
-    container-color: mat.get-theme-color(m3-theme.$dark-theme, neutral, 12),
-    supporting-text-color: mat.get-theme-color(m3-theme.$dark-theme, neutral-variant, 90)
+    container-color: var(--theme-neutral-12),
+    supporting-text-color: var(--theme-neutral-variant-90)
   ));
 
 }
@@ -61,7 +68,7 @@ html {
 /* You can add global styles to this file, and also import other style files */
 
 
-@media (max-width:768px) {
+@media (max-width:1100px) {
   mat-stepper{
     padding: 15px !important;
   }
@@ -84,10 +91,12 @@ html{
 }
 
 *{
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   outline: none;
+}
+
+p{
+  margin: 0;
 }
 
 .mat-mdc-dialog-surface{
@@ -161,14 +170,53 @@ a{
   }
 
   .content > h1{
-    margin:20px 0;
+    margin:var(--px-separator-20) 0;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1100px) {
     .content{
       width: 70%;
     }
   }
+}
+
+@mixin dialog-base-styles{
+
+  .content section{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .content h1{
+    color: white;
+    margin: 20px 0;
+  }
+
+  .content section > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .fields{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .actions{
+    display: flex;
+    gap: 10px;
+    align-self: end;
+  }
+
+  @media (min-width:1100px){
+    
+  }
+
+
 }
 
 // Mixins \\

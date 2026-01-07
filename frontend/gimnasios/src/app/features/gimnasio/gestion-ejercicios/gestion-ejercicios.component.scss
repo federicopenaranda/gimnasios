@@ -1,5 +1,6 @@
-@forward '../../../../styles.scss';
-// @include component-base-styles;
+@use '@angular/material' as mat;
+@use 'styles.scss' as styles;
+@include styles.component-base-styles;
 
 
 .actions{
@@ -94,7 +95,7 @@ mat-divider{
   margin: 10px 0;
 }
 
-@media (max-width: 768px){
+@media (max-width: 1100px){
 
   mat-card{
     flex-direction: column;

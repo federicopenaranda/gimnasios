@@ -1,7 +1,7 @@
 <div class="content">
   <h1>Rutina</h1>
   <section>
-    <mat-stepper [orientation]="windowWidth() <= 768 ? 'vertical' : 'horizontal'" [linear]="false" #stepper>
+    <mat-stepper [orientation]="windowWidth() <= 1100 ? 'vertical' : 'horizontal'" [linear]="false" #stepper>
     <form [formGroup]="formRutina">
 
       @for(dia of semana; track $index){
@@ -54,9 +54,13 @@
                   </div>
                 }
               </mat-accordion>
-              <button mat-raised-button color="primary" type="button" (click)="addEjercicioDia(dia.number)">Agregar ejercicio</button>
+              <mat-card-actions>
+                <button matButton="filled" color="primary" type="button" (click)="addEjercicioDia(dia.number)">Agregar ejercicio</button>
+              </mat-card-actions>
             </section>
-            <button mat-raised-button color="primary" type="button" (click)="guardarRutinaDia(dia.number)">Guardar</button>
+            <mat-card-actions>
+              <button matButton="filled" color="primary" type="button" (click)="guardarRutinaDia(dia.number)">Guardar</button>
+            </mat-card-actions>
           </div>
         </mat-step>
 

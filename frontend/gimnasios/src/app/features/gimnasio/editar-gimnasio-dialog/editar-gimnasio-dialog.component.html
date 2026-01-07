@@ -1,8 +1,8 @@
 <div class="content">
   <section>
-    <h1>{{gimnasioData.nombre}}</h1>
     <form [formGroup]="gimnasioForm" (submit)="onSubmit()">
-      <div>
+      <h1>{{gimnasioData.nombre}}</h1>
+      <div class="fields">
         <mat-form-field>
           <mat-label>Nombre</mat-label>
           <input type="text" formControlName="nombre" matInput placeholder="Nombre del gimnasio" required>
@@ -25,10 +25,10 @@
           <input type="text" formControlName="sitio_web" matInput placeholder="Sitio web del gimnasio" required>
         </mat-form-field>
       </div>
-      <div>
-        <button mat-stroked-button type="button" (click)="dialogRef.close()" color="contrast">Cancelar</button>
-        <button mat-raised-button type="submit" color="primary">Guardar cambios</button>
-      </div>
+      <mat-card-actions class="actions">
+        <button matButton="outlined" type="button" (click)="dialogRef.close()" color="contrast">Cancelar</button>
+        <button matButton="filled" type="submit" color="primary">Guardar cambios</button>
+      </mat-card-actions>
     </form>
   </section>
 </div>

@@ -52,8 +52,8 @@ export class DatosGimnasioComponent {
   editarGimnasio(){
     let dialog = this.dialog.open(EditarGimnasioDialogComponent, {
       data: this.gimnasioData,
-      height: (this.windowWidth() <= 768) ? '95vh' : '90vh',
-      minWidth: (this.windowWidth() <= 768) ? '95vw' : '60vw'
+      height: (this.windowWidth() <= 1100) ? '95vh' : '90vh',
+      minWidth: (this.windowWidth() <= 1100) ? '95vw' : '60vw'
     })
 
     dialog.afterClosed().subscribe((result: any) => {

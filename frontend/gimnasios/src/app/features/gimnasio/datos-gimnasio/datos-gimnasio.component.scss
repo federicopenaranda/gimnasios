@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
-@forward '../../../../styles.scss';
-// @include component-base-styles;
+@use 'styles.scss' as styles;
+@include styles.component-base-styles;
 
 mat-card{
   display: flex;
@@ -66,13 +66,7 @@ mat-card-actions{
   justify-content: flex-end;
 }
 
-@media (min-width: 768px) {
-  .content{
-    width: 70%;
-  }
-}
-
-@media (max-width: 768px){
+@media (max-width: 1100px){
 
   mat-card-content{
     gap: 20px;

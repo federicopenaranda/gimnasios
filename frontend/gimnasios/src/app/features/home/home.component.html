@@ -1,7 +1,7 @@
 <div class="content">
   <h1>Registrar rutina</h1>
   <section>
-    <mat-stepper [orientation]="windowWidth() <= 768 ? 'vertical' : 'horizontal'" [linear]="false" #stepper>
+    <mat-stepper [orientation]="windowWidth() <= 1100 ? 'vertical' : 'horizontal'" [linear]="false" #stepper>
       @for(ejercicio of userEjercicios; track $index){
         <form [formGroup]="userRegistros">
           <mat-step [formArrayName]="'id_registro_'+ejercicio.id">
@@ -29,18 +29,20 @@
                   </mat-expansion-panel>
                 }
               </mat-accordion>
-              <button mat-raised-button (click)="addSerie(ejercicio.id)">Agregar serie</button>
-              <div class="mat-stepper-actions">
-                @if($index > 0 ){
-                  <button mat-stroked-button matStepperPrevious>Anterior</button>
-                }
-                @if($index < userEjercicios.length - 1){
-                  <button mat-raised-button matStepperNext>Siguiente</button>
-                }
-                @if($index == userEjercicios.length - 1){
-                  <button mat-raised-button (click)="guardarRegistros()">Finalizar rutina</button>
-                }
-              </div>
+              <mat-card-actions>
+                <button matButton="filled" (click)="addSerie(ejercicio.id)">Agregar serie</button>
+                <div class="mat-stepper-actions">
+                  @if($index > 0 ){
+                    <button matButton="outlined" matStepperPrevious>Anterior</button>
+                  }
+                  @if($index < userEjercicios.length - 1){
+                    <button matButton="filled" matStepperNext>Siguiente</button>
+                  }
+                  @if($index == userEjercicios.length - 1){
+                    <button matButton="filled" (click)="guardarRegistros()">Finalizar rutina</button>
+                  }
+                </div>
+              </mat-card-actions>
             </div>
           </mat-step>
         </form>

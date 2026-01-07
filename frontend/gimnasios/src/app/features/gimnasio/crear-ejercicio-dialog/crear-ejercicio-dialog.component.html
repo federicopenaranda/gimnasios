@@ -2,7 +2,7 @@
   <section>
     <form [formGroup]="ejercicioForm" (submit)="onSubmit()">
       <h1>Crear nuevo ejercicio</h1>
-      <div>
+      <div class="fields">
         <mat-form-field>
           <mat-label>Nombre</mat-label>
           <input type="text" formControlName="nombre" matInput placeholder="Nombre del ejercicio" required>
@@ -15,14 +15,11 @@
           <mat-label>Descripción</mat-label>
           <input type="text" formControlName="descripcion" matInput placeholder="Descripción del ejercicio" required>
         </mat-form-field>
-
-
       </div>
-
-      <div>
-        <button mat-stroked-button type="button" (click)="dialogRef.close()" color="contrast">Cancelar</button>
-        <button mat-raised-button type="submit" color="primary">Guardar cambios</button>
-      </div>
+      <mat-card-actions class="actions">
+        <button matButton="outlined" type="button" (click)="dialogRef.close()" color="contrast">Cancelar</button>
+        <button matButton="filled" type="submit" color="primary">Guardar cambios</button>
+      </mat-card-actions>
     </form>
   </section>
 </div>

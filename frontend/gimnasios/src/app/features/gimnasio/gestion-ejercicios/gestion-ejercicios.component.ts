@@ -64,8 +64,8 @@ export class GestionEjerciciosComponent {
   editarEjercicio(ejercicioData: Ejercicio){
     let dialog = this.dialog.open(EditarEjercicioDialogComponent, {
       data: ejercicioData,
-      height: (this.windowWidth() <= 768) ? '95vh' : '90vh',
-      minWidth: (this.windowWidth() <= 768) ? '95vw' : '60vw'
+      height: (this.windowWidth() <= 1100) ? '95vh' : '90vh',
+      minWidth: (this.windowWidth() <= 1100) ? '95vw' : '60vw'
     })
 
     dialog.afterClosed().subscribe((result: any) => {
@@ -79,8 +79,8 @@ export class GestionEjerciciosComponent {
 
   crearEjercicio(){
     let dialog = this.dialog.open(CrearEjercicioDialogComponent, {
-      height: (this.windowWidth() <= 768) ? '95vh' : '90vh',
-      minWidth: (this.windowWidth() <= 768) ? '95vw' : '60vw'
+      height: (this.windowWidth() <= 1100) ? '95vh' : '90vh',
+      minWidth: (this.windowWidth() <= 1100) ? '95vw' : '60vw'
     })
 
     dialog.afterClosed().subscribe((result: any) => {

@@ -2,7 +2,7 @@
   <section>
     <form [formGroup]="userForm" (submit)="onSubmit()">
       <h1>Datos del usuario</h1>
-      <div>
+      <div class="fields">
         <mat-form-field>
           <mat-label>Nombre</mat-label>
           <input type="text" formControlName="nombre" matInput placeholder="Nombre del usuario" required>
@@ -54,9 +54,7 @@
           <input type="text" formControlName="emergencia_movil" matInput placeholder="Emergencia movil del usuario" required>
         </mat-form-field>
       </div>
-
-
-      <div>
+      <div class="contacts-conditions">
         <h1>Contactos del usuario</h1>
         <form [formGroup]="usuarioContactoForm" >
           <ng-container formArrayName="usuario_contacto_edit">
@@ -102,7 +100,7 @@
               </div>
             }
           </ng-container>
-          <button mat-raised-button color="primary" (click)="addUsuarioContactoAdd()">Agregar Contacto</button>
+          <button matButton="filled" color="primary" (click)="addUsuarioContactoAdd()">Agregar Contacto</button>
         </form>
 
 
@@ -152,27 +150,13 @@
               </div>
             }
           </ng-container>
-          <button mat-raised-button color="primary" (click)="addUsuarioCondicionAdd()">Agregar Condicion</button>
+          <button matButton="filled" color="primary" (click)="addUsuarioCondicionAdd()">Agregar Condicion</button>
         </form>
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
-
-
-      <div>
-        <button mat-stroked-button type="button" (click)="dialogRef.close()" color="contrast">Cancelar</button>
-        <button mat-raised-button type="submit" color="primary">Guardar cambios</button>
-      </div>
+      <mat-card-actions class="actions">
+        <button matButton="outlined" type="button" (click)="dialogRef.close()" color="contrast">Cancelar</button>
+        <button matButton="filled" type="submit" color="primary">Guardar cambios</button>
+      </mat-card-actions>
     </form>
   </section>
 </div>

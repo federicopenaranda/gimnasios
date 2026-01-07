@@ -58,8 +58,8 @@ export class GestionUsuariosComponent {
   editarUsuario(userData: User){
     let dialog = this.dialog.open(EditarUsuarioDialogComponent, {
       data: userData,
-      height: (this.windowWidth() <= 768) ? '95vh' : '90vh',
-      minWidth: (this.windowWidth() <= 768) ? '95vw' : '60vw'
+      height: (this.windowWidth() <= 1100) ? '95vh' : '90vh',
+      minWidth: (this.windowWidth() <= 1100) ? '95vw' : '60vw'
     })
 
     dialog.afterClosed().subscribe((result: any) => {
@@ -86,8 +86,8 @@ export class GestionUsuariosComponent {
 
   crearUsuario(){
     let dialog = this.dialog.open(CrearUsuarioDialogComponent, {
-      height: (this.windowWidth() <= 768) ? '95vh' : '90vh',
-      minWidth: (this.windowWidth() <= 768) ? '95vw' : '60vw'
+      height: (this.windowWidth() <= 1100) ? '95vh' : '90vh',
+      minWidth: (this.windowWidth() <= 1100) ? '95vw' : '60vw'
     })
 
     dialog.afterClosed().subscribe((result: any) => {

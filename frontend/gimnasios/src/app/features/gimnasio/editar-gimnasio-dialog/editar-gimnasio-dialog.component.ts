@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { GestionGimnasioService } from '../gestion-gimnasio.service';
 import { ApiResponse } from '../../../shared/models/apiResponse.model';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
     selector: 'app-editar-gimnasio-dialog',
@@ -16,7 +17,8 @@ import { ApiResponse } from '../../../shared/models/apiResponse.model';
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatCardModule
     ],
     templateUrl: './editar-gimnasio-dialog.component.html',
     styleUrl: './editar-gimnasio-dialog.component.scss'
